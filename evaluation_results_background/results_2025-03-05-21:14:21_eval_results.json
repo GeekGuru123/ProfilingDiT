@@ -1,0 +1,39 @@
+{
+    "aesthetic_quality": [
+        0.6046818271279335,
+        [
+            {
+                "video_path": "/home/xuran/ProfilingDiT/HunyuanVideo/results_cache_background/seed42_A dog playing fetch with a frisbee in a grassy park..mp4",
+                "video_results": 0.5581645965576172
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/HunyuanVideo/results_cache_background/seed42_A lighthouse standing tall on a rocky cliff by the ocean..mp4",
+                "video_results": 0.5117837190628052
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/HunyuanVideo/results_cache_background/seed42_A child building a sandcastle on a sunny beach..mp4",
+                "video_results": 0.6749431490898132
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/HunyuanVideo/results_cache_background/seed42_A red sports car speeding down a winding mountain road..mp4",
+                "video_results": 0.6632630228996277
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/HunyuanVideo/results_cache_background/seed42_A group of friends roasting marshmallows around a campfire..mp4",
+                "video_results": 0.7382655739784241
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/HunyuanVideo/results_cache_background/seed42_A cat sitting on a windowsill watching birds outside..mp4",
+                "video_results": 0.5405673384666443
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/HunyuanVideo/results_cache_background/seed42_A chef preparing sushi in a busy kitchen..mp4",
+                "video_results": 0.5805151462554932
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/HunyuanVideo/results_cache_background/seed42_A painter creating a colorful mural on a city wall..mp4",
+                "video_results": 0.5699520707130432
+            }
+        ]
+    ]
+}

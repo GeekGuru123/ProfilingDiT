@@ -1,0 +1,39 @@
+{
+    "aesthetic_quality": [
+        0.6062413081526756,
+        [
+            {
+                "video_path": "/home/xuran/ProfilingDiT/ori/HunyuanVideo/teacache_results/seed42_A dog playing fetch with a frisbee in a grassy park..mp4",
+                "video_results": 0.5550710558891296
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/ori/HunyuanVideo/teacache_results/seed42_A lighthouse standing tall on a rocky cliff by the ocean..mp4",
+                "video_results": 0.5176727771759033
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/ori/HunyuanVideo/teacache_results/seed42_A child building a sandcastle on a sunny beach..mp4",
+                "video_results": 0.683420717716217
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/ori/HunyuanVideo/teacache_results/seed42_A red sports car speeding down a winding mountain road..mp4",
+                "video_results": 0.6385669112205505
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/ori/HunyuanVideo/teacache_results/seed42_A group of friends roasting marshmallows around a campfire..mp4",
+                "video_results": 0.761552631855011
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/ori/HunyuanVideo/teacache_results/seed42_A cat sitting on a windowsill watching birds outside..mp4",
+                "video_results": 0.5386492609977722
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/ori/HunyuanVideo/teacache_results/seed42_A chef preparing sushi in a busy kitchen..mp4",
+                "video_results": 0.5394375920295715
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/ori/HunyuanVideo/teacache_results/seed42_A painter creating a colorful mural on a city wall..mp4",
+                "video_results": 0.6155595183372498
+            }
+        ]
+    ]
+}

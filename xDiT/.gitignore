@@ -1,0 +1,12 @@
+.idea
+.DS_Store
+build
+__pycache__
+*.log
+*.txt
+results/
+profile/
+.vscode/
+xfuser.egg-info/
+dist/*
+*.mp4

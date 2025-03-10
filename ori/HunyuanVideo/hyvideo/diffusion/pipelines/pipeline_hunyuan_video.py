@@ -24,6 +24,11 @@ import numpy as np
 from dataclasses import dataclass
 from packaging import version
 
+import matplotlib.pyplot as plt
+from torch.nn.functional import cosine_similarity
+import os
+
+
 from diffusers.callbacks import MultiPipelineCallbacks, PipelineCallback
 from diffusers.configuration_utils import FrozenDict
 from diffusers.image_processor import VaeImageProcessor
@@ -957,7 +962,14 @@ class HunyuanVideoPipeline(DiffusionPipeline):
         self._num_timesteps = len(timesteps)
 
         # if is_progress_bar:
+        import time
+        start_time = time.time()
         with self.progress_bar(total=num_inference_steps) as progress_bar:
+            # save_dir = "/home/xuran/DIT-Cache/HunyuanVideo/output_images/"
+            # os.makedirs(save_dir, exist_ok=True)
+
+            # 存储所有 step 的 noise_pred
+            # noise_preds = []
             for i, t in enumerate(timesteps):
                 if self.interrupt:
                     continue
@@ -1001,7 +1013,7 @@ class HunyuanVideoPipeline(DiffusionPipeline):
                     )[
                         "x"
                     ]
-
+                # noise_preds.append(noise_pred.detach().cpu())
                 # perform guidance
                 if self.do_classifier_free_guidance:
                     noise_pred_uncond, noise_pred_text = noise_pred.chunk(2)
@@ -1043,7 +1055,45 @@ class HunyuanVideoPipeline(DiffusionPipeline):
                     if callback is not None and i % callback_steps == 0:
                         step_idx = i // getattr(self.scheduler, "order", 1)
                         callback(step_idx, t, latents)
+                    
+        end_time = time.time()
+        elapsed_time = end_time - start_time  # 计算耗时
+        print(f"代码执行时间: {elapsed_time:.2f} 秒")
+            #     # 计算相邻 step 之间的 L1 距离
+            #     l1_distances = []
+            #     steps = list(range(len(noise_preds) - 1))
 
+            #     for i in range(len(noise_preds) - 1):
+            #         A = noise_preds[i]  # 形状 (b, c, f, h, w)
+            #         B = noise_preds[i + 1]
+
+            #         # 计算整体 L1 距离
+            #         l1_distance = torch.mean(torch.abs(A - B)).item()
+            #         l1_distances.append(l1_distance)
+
+            #     # 绘制 L1 距离变化曲线并保存
+            #     plt.figure(figsize=(8, 5))
+            #     plt.plot(steps, l1_distances, marker="o", linestyle="-", color="r", label="L1 Distance")
+            #     plt.xlabel("Step Index")
+            #     plt.ylabel("L1 Distance")
+            #     plt.title("Noise Prediction L1 Distance Over Steps")
+            #     plt.legend()
+            #     plt.grid()
+
+            #     # 保存图像
+            #     l1_plot_path = os.path.join(save_dir, "noise_pred_L1_distance.png")
+            #     plt.savefig(l1_plot_path, dpi=300)
+            #     plt.close()
+
+            #     print(f"L1 距离曲线已保存至: {l1_plot_path}")
+
+            # # 保存图像到指定路径
+            # # similarity_plot_path = os.path.join(save_dir, "./noise_pred_similarity.png")
+            # similarity_plot_path = "./noise_pred_L1similarity.png"
+            # plt.savefig(similarity_plot_path, dpi=300)
+            # plt.close()  # 关闭图像，避免显示
+
+            # print(f"相似度曲线已保存至: {similarity_plot_path}")
         if not output_type == "latent":
             expand_temporal_dim = False
             if len(latents.shape) == 4:

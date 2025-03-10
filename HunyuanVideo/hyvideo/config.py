@@ -18,14 +18,32 @@ def parse_args(namespace=None):
 
     return args
 
+
+# def add_deltacache_args(parser: argparse.ArgumentParser):
+#     group = parser.add_argument_group(title="Cache args")
+#     group.add_argument("--delta_cache", action='store_true')
+#     group.add_argument("--step_start", type=int, default=10)
+#     group.add_argument("--step_interval", type=int, default=2)
+#     group.add_argument("--block_start", type=int, default=9)
+#     group.add_argument("--num_blocks", type=int, default=24)
+#     group.add_argument("--block_start_double", type=int, default=5)
+#     group.add_argument("--num_blocks_double", type=int, default=12)
+#     return parser
+
 def add_deltacache_args(parser: argparse.ArgumentParser):
     group = parser.add_argument_group(title="Cache args")
     group.add_argument("--delta_cache", action='store_true')
     group.add_argument("--step_start", type=int, default=6)
-    group.add_argument("--step_interval", type=int, default=4)
+    group.add_argument("--step_interval", type=int, default=6)
     group.add_argument("--block_start", type=int, default=6)
     group.add_argument("--num_blocks", type=int, default=28)
-    group.add_argument("--block_cache_list", type=list, default=[0, 2, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 27, 31, 33])
+    # group.add_argument("--block_cache_list", type=list, default=[10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21])
+    group.add_argument("--block_cache_list_background", type=list, default=[0, 2, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 27, 31, 33])
+    # group.add_argument("--block_cache_list_background", type=list, default=[1, 3, 8, 9, 22, 24, 28, 29, 30, 32, 34, 35, 36, 37, 38, 39])
+    group.add_argument("--step_cache_list", type=list, default=[6, 18, 26, 32, 38, 42, 46, 48])
+    group.add_argument("--block_cache_list_foreground", type=list, default=[1, 3, 8, 9, 22, 24, 28, 29, 30, 32, 34, 35, 36, 37, 38, 39])
+    # group.add_argument("--block_cache_list_foreground", type=list, default=[0, 2, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 27, 31, 33])
+
     group.add_argument("--block_start_double", type=int, default=6)
     group.add_argument("--num_blocks_double", type=int, default=14)
     return parser

@@ -1,0 +1,55 @@
+{
+    "background_consistency": [
+        0.9598965644836426,
+        [
+            {
+                "video_path": "/home/xuran/ProfilingDiT/HunyuanVideo/results_cache/seed42_A dog playing fetch with a frisbee in a grassy park..mp4",
+                "video_results": 0.9194202423095703,
+                "video_sim": 117.685791015625,
+                "cnt_per_video": 128
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/HunyuanVideo/results_cache/seed42_A lighthouse standing tall on a rocky cliff by the ocean..mp4",
+                "video_results": 0.978912353515625,
+                "video_sim": 125.30078125,
+                "cnt_per_video": 128
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/HunyuanVideo/results_cache/seed42_A child building a sandcastle on a sunny beach..mp4",
+                "video_results": 0.9691219329833984,
+                "video_sim": 124.047607421875,
+                "cnt_per_video": 128
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/HunyuanVideo/results_cache/seed42_A red sports car speeding down a winding mountain road..mp4",
+                "video_results": 0.9283180236816406,
+                "video_sim": 118.82470703125,
+                "cnt_per_video": 128
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/HunyuanVideo/results_cache/seed42_A group of friends roasting marshmallows around a campfire..mp4",
+                "video_results": 0.9799461364746094,
+                "video_sim": 125.43310546875,
+                "cnt_per_video": 128
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/HunyuanVideo/results_cache/seed42_A cat sitting on a windowsill watching birds outside..mp4",
+                "video_results": 0.9749813079833984,
+                "video_sim": 124.797607421875,
+                "cnt_per_video": 128
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/HunyuanVideo/results_cache/seed42_A chef preparing sushi in a busy kitchen..mp4",
+                "video_results": 0.9480209350585938,
+                "video_sim": 121.3466796875,
+                "cnt_per_video": 128
+            },
+            {
+                "video_path": "/home/xuran/ProfilingDiT/HunyuanVideo/results_cache/seed42_A painter creating a colorful mural on a city wall..mp4",
+                "video_results": 0.9804515838623047,
+                "video_sim": 125.497802734375,
+                "cnt_per_video": 128
+            }
+        ]
+    ]
+}

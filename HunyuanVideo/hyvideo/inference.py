@@ -53,6 +53,7 @@ def parallelize_transformer(pipe):
         freqs_sin: Optional[torch.Tensor] = None,
         guidance: torch.Tensor = None,  # Guidance for modulation, should be cfg_scale x 1000.
         return_dict: bool = True,
+        step_idx: int = 0,
     ):
         if x.shape[-2] // 2 % get_sequence_parallel_world_size() == 0:
             # try to split x by height
@@ -92,6 +93,7 @@ def parallelize_transformer(pipe):
             freqs_sin,
             guidance,
             return_dict,
+            step_idx,
         )
 
         return_dict = not isinstance(output, tuple)
@@ -204,13 +206,16 @@ class Inference(object):
         model.eval()
         if args.delta_cache:
             from .ditcache import DitCache
+            
             model.cache = DitCache(step_start = args.step_start,
                                     step_interval = args.step_interval,
                                     block_start = args.block_start,
                                     num_blocks = args.num_blocks,
                                     block_start_double = args.block_start_double,
                                     num_blocks_double = args.num_blocks_double,
-                                    block_cache_list = args.block_cache_list)
+                                    block_cache_list_background = args.block_cache_list_background,
+                                    block_cache_list_foreground = args.block_cache_list_foreground,
+                                    step_cache_list = args.step_cache_list)
         # ============================= Build extra models ========================
         # VAE
         vae, _, s_ratio, t_ratio = load_vae(
@@ -552,6 +557,7 @@ class HunyuanVideoSampler(Inference):
                 for _ in range(batch_size)
                 for i in range(num_videos_per_prompt)
             ]
+            # print(seeds)
         elif isinstance(seed, (list, tuple)):
             if len(seed) == batch_size:
                 seeds = [

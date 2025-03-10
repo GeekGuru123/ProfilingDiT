@@ -957,6 +957,9 @@ class HunyuanVideoPipeline(DiffusionPipeline):
         self._num_timesteps = len(timesteps)
 
         # if is_progress_bar:
+        # saved_noise_pred = None
+        import time
+        start_time = time.time()
         with self.progress_bar(total=num_inference_steps) as progress_bar:
             for i, t in enumerate(timesteps):
                 if self.interrupt:
@@ -985,6 +988,10 @@ class HunyuanVideoPipeline(DiffusionPipeline):
                 )
 
                 # predict the noise residual
+                # if i > 20 and i <= 40 and saved_noise_pred is not None:
+                #     noise_pred = saved_noise_pred  # 直接复用
+                    
+                # else:
                 with torch.autocast(
                     device_type="cuda", dtype=target_dtype, enabled=autocast_enabled
                 ):
@@ -999,9 +1006,12 @@ class HunyuanVideoPipeline(DiffusionPipeline):
                         guidance=guidance_expand,
                         return_dict=True,
                         step_idx=i,
+                        
                     )[
                         "x"
                     ]
+                    # if i == 20:
+                    #     saved_noise_pred = noise_pred.detach().clone()  
 
                 # perform guidance
                 if self.do_classifier_free_guidance:
@@ -1044,7 +1054,9 @@ class HunyuanVideoPipeline(DiffusionPipeline):
                     if callback is not None and i % callback_steps == 0:
                         step_idx = i // getattr(self.scheduler, "order", 1)
                         callback(step_idx, t, latents)
-
+        end_time = time.time()
+        elapsed_time = end_time - start_time  # 计算耗时
+        print(f"代码执行时间: {elapsed_time:.2f} 秒")
         if not output_type == "latent":
             expand_temporal_dim = False
             if len(latents.shape) == 4:

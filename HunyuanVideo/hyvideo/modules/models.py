@@ -603,7 +603,8 @@ class HYVideoDiffusionTransformer(ModelMixin, ConfigMixin):
         freqs_sin: Optional[torch.Tensor] = None,
         guidance: torch.Tensor = None,  # Guidance for modulation, should be cfg_scale x 1000.
         return_dict: bool = True,
-        step_idx = 0,
+        step_idx: int = None,
+        
     ) -> Union[torch.Tensor, Dict[str, torch.Tensor]]:
         out = {}
         img = x
@@ -669,7 +670,7 @@ class HYVideoDiffusionTransformer(ModelMixin, ConfigMixin):
                 img, txt = self.cache.forward_double(block, step_idx, block_idx, *double_block_args)
             else:
                 img, txt = block(*double_block_args)
-
+            # img, txt = block(*double_block_args)
         # Merge txt and img to pass through single stream blocks.
         x = torch.cat((img, txt), 1)
         if len(self.single_blocks) > 0:
@@ -684,11 +685,13 @@ class HYVideoDiffusionTransformer(ModelMixin, ConfigMixin):
                     max_seqlen_kv,
                     (freqs_cos, freqs_sin),
                 ]
-
+            
                 if self.cache:
                     x = self.cache.forward_single(block, step_idx, block_idx, *single_block_args)
                 else:
                     x = block(*single_block_args)
+                # x = self.cache.forward_single(block, step_idx, block_idx, *single_block_args)
+                # x = block(*single_block_args)
 
         img = x[:, :img_seq_len, ...]
 
