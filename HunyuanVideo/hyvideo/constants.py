@@ -64,7 +64,7 @@ NORMALIZATION_TYPE = {"layer", "rms"}
 ACTIVATION_TYPE = {"relu", "silu", "gelu", "gelu_tanh"}
 
 # =================== Model Path =====================
-MODEL_BASE = "/data/yexin/workspace/HunyuanVideo/ckpts"
+MODEL_BASE = "/persistent/app_user_data/models"
 
 # =================== Data =======================
 DATA_TYPE = {"image", "video", "image_video"}

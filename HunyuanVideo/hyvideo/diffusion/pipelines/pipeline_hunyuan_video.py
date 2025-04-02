@@ -1054,9 +1054,13 @@ class HunyuanVideoPipeline(DiffusionPipeline):
                     if callback is not None and i % callback_steps == 0:
                         step_idx = i // getattr(self.scheduler, "order", 1)
                         callback(step_idx, t, latents)
+                        
         end_time = time.time()
         elapsed_time = end_time - start_time  # 计算耗时
-        print(f"代码执行时间: {elapsed_time:.2f} 秒")
+        
+
+        print(f"single Rank 的执行时间: {elapsed_time}")
+
         if not output_type == "latent":
             expand_temporal_dim = False
             if len(latents.shape) == 4:

@@ -1,0 +1,308 @@
+[2025-03-24 16:52:57,973] INFO: offload_model is not specified, set to True.
+[2025-03-24 16:52:57,974] INFO: Generation job args: Namespace(delta_cache=True, step_start=6, step_interval=6, block_start=6, num_blocks=28, block_cache_list_background=[0, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25, 26, 27, 28, 29, 30, 31, 32, 37, 38], step_cache_list=[6, 18, 26, 32, 38, 42, 46, 48], block_cache_list_foreground=[1, 3, 8, 9, 22, 24, 28, 29, 30, 32, 34, 35, 36, 37, 38, 39], block_start_double=6, num_blocks_double=14, task='t2v-14B', size='832*480', frame_num=81, ckpt_dir='/data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B', offload_model=True, ulysses_size=1, ring_size=1, t5_fsdp=False, t5_cpu=False, dit_fsdp=False, save_file=None, prompt='Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stag\ne.', use_prompt_extend=False, prompt_extend_method='local_qwen', prompt_extend_model=None, prompt_extend_target_lang='zh', base_seed=42, image=None, sample_solver='unipc', sample_steps=50, sample_shift=5.0, sample_guide_scale=5.0)
+[2025-03-24 16:52:57,975] INFO: Generation model config: {'__name__': 'Config: Wan T2V 14B', 't5_model': 'umt5_xxl', 't5_dtype': torch.bfloat16, 'text_len': 512, 'param_dtype': torch.bfloat16, 'num_train_timesteps': 1000, 'sample_fps': 16, 'sample_neg_prompt': '色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走', 't5_checkpoint': 'models_t5_umt5-xxl-enc-bf16.pth', 't5_tokenizer': 'google/umt5-xxl', 'vae_checkpoint': 'Wan2.1_VAE.pth', 'vae_stride': (4, 8, 8), 'patch_size': (1, 2, 2), 'dim': 5120, 'ffn_dim': 13824, 'freq_dim': 256, 'num_heads': 40, 'num_layers': 40, 'window_size': (-1, -1), 'qk_norm': True, 'cross_attn_norm': True, 'eps': 1e-06}
+[2025-03-24 16:52:57,975] INFO: Input prompt: Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stag
+e.
+[2025-03-24 16:52:57,975] INFO: Creating WanT2V pipeline.
+[2025-03-24 16:53:07,581] INFO: offload_model is not specified, set to True.
+[2025-03-24 16:53:07,582] INFO: Generation job args: Namespace(delta_cache=True, step_start=6, step_interval=6, block_start=6, num_blocks=28, block_cache_list_background=[0, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25, 26, 27, 28, 29, 30, 31, 32, 37, 38], step_cache_list=[6, 18, 26, 32, 38, 42, 46, 48], block_cache_list_foreground=[1, 3, 8, 9, 22, 24, 28, 29, 30, 32, 34, 35, 36, 37, 38, 39], block_start_double=6, num_blocks_double=14, task='t2v-14B', size='832*480', frame_num=81, ckpt_dir='/data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B', offload_model=True, ulysses_size=1, ring_size=1, t5_fsdp=False, t5_cpu=False, dit_fsdp=False, save_file=None, prompt='Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stag\ne.', use_prompt_extend=False, prompt_extend_method='local_qwen', prompt_extend_model=None, prompt_extend_target_lang='zh', base_seed=42, image=None, sample_solver='unipc', sample_steps=50, sample_shift=5.0, sample_guide_scale=5.0)
+[2025-03-24 16:53:07,582] INFO: Generation model config: {'__name__': 'Config: Wan T2V 14B', 't5_model': 'umt5_xxl', 't5_dtype': torch.bfloat16, 'text_len': 512, 'param_dtype': torch.bfloat16, 'num_train_timesteps': 1000, 'sample_fps': 16, 'sample_neg_prompt': '色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走', 't5_checkpoint': 'models_t5_umt5-xxl-enc-bf16.pth', 't5_tokenizer': 'google/umt5-xxl', 'vae_checkpoint': 'Wan2.1_VAE.pth', 'vae_stride': (4, 8, 8), 'patch_size': (1, 2, 2), 'dim': 5120, 'ffn_dim': 13824, 'freq_dim': 256, 'num_heads': 40, 'num_layers': 40, 'window_size': (-1, -1), 'qk_norm': True, 'cross_attn_norm': True, 'eps': 1e-06}
+[2025-03-24 16:53:07,583] INFO: Input prompt: Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stag
+e.
+[2025-03-24 16:53:07,583] INFO: Creating WanT2V pipeline.
+[2025-03-24 16:53:18,520] INFO: offload_model is not specified, set to True.
+[2025-03-24 16:53:18,520] INFO: Generation job args: Namespace(delta_cache=True, step_start=6, step_interval=6, block_start=6, num_blocks=28, block_cache_list_background=[0, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25, 26, 27, 28, 29, 30, 31, 32, 37, 38], step_cache_list=[6, 18, 26, 32, 38, 42, 46, 48], block_cache_list_foreground=[1, 3, 8, 9, 22, 24, 28, 29, 30, 32, 34, 35, 36, 37, 38, 39], block_start_double=6, num_blocks_double=14, task='t2v-14B', size='832*480', frame_num=81, ckpt_dir='/data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B', offload_model=True, ulysses_size=1, ring_size=1, t5_fsdp=False, t5_cpu=False, dit_fsdp=False, save_file=None, prompt='Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stag\ne.', use_prompt_extend=False, prompt_extend_method='local_qwen', prompt_extend_model=None, prompt_extend_target_lang='zh', base_seed=42, image=None, sample_solver='unipc', sample_steps=50, sample_shift=5.0, sample_guide_scale=5.0)
+[2025-03-24 16:53:18,521] INFO: Generation model config: {'__name__': 'Config: Wan T2V 14B', 't5_model': 'umt5_xxl', 't5_dtype': torch.bfloat16, 'text_len': 512, 'param_dtype': torch.bfloat16, 'num_train_timesteps': 1000, 'sample_fps': 16, 'sample_neg_prompt': '色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走', 't5_checkpoint': 'models_t5_umt5-xxl-enc-bf16.pth', 't5_tokenizer': 'google/umt5-xxl', 'vae_checkpoint': 'Wan2.1_VAE.pth', 'vae_stride': (4, 8, 8), 'patch_size': (1, 2, 2), 'dim': 5120, 'ffn_dim': 13824, 'freq_dim': 256, 'num_heads': 40, 'num_layers': 40, 'window_size': (-1, -1), 'qk_norm': True, 'cross_attn_norm': True, 'eps': 1e-06}
+[2025-03-24 16:53:18,521] INFO: Input prompt: Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stag
+e.
+[2025-03-24 16:53:18,522] INFO: Creating WanT2V pipeline.
+[2025-03-24 16:53:26,691] INFO: offload_model is not specified, set to True.
+[2025-03-24 16:53:26,692] INFO: Generation job args: Namespace(delta_cache=True, step_start=6, step_interval=6, block_start=6, num_blocks=28, block_cache_list_background=[0, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25, 26, 27, 28, 29, 30, 31, 32, 37, 38], step_cache_list=[6, 18, 26, 32, 38, 42, 46, 48], block_cache_list_foreground=[1, 3, 8, 9, 22, 24, 28, 29, 30, 32, 34, 35, 36, 37, 38, 39], block_start_double=6, num_blocks_double=14, task='t2v-14B', size='832*480', frame_num=81, ckpt_dir='/data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B', offload_model=True, ulysses_size=1, ring_size=1, t5_fsdp=False, t5_cpu=False, dit_fsdp=False, save_file=None, prompt='Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stag\ne.', use_prompt_extend=False, prompt_extend_method='local_qwen', prompt_extend_model=None, prompt_extend_target_lang='zh', base_seed=42, image=None, sample_solver='unipc', sample_steps=50, sample_shift=5.0, sample_guide_scale=5.0)
+[2025-03-24 16:53:26,692] INFO: Generation model config: {'__name__': 'Config: Wan T2V 14B', 't5_model': 'umt5_xxl', 't5_dtype': torch.bfloat16, 'text_len': 512, 'param_dtype': torch.bfloat16, 'num_train_timesteps': 1000, 'sample_fps': 16, 'sample_neg_prompt': '色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走', 't5_checkpoint': 'models_t5_umt5-xxl-enc-bf16.pth', 't5_tokenizer': 'google/umt5-xxl', 'vae_checkpoint': 'Wan2.1_VAE.pth', 'vae_stride': (4, 8, 8), 'patch_size': (1, 2, 2), 'dim': 5120, 'ffn_dim': 13824, 'freq_dim': 256, 'num_heads': 40, 'num_layers': 40, 'window_size': (-1, -1), 'qk_norm': True, 'cross_attn_norm': True, 'eps': 1e-06}
+[2025-03-24 16:53:26,693] INFO: Input prompt: Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stag
+e.
+[2025-03-24 16:53:26,693] INFO: Creating WanT2V pipeline.
+[2025-03-24 16:53:39,116] INFO: offload_model is not specified, set to True.
+[2025-03-24 16:53:39,117] INFO: Generation job args: Namespace(delta_cache=True, step_start=6, step_interval=6, block_start=6, num_blocks=28, block_cache_list_background=[0, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25, 26, 27, 28, 29, 30, 31, 32, 37, 38], step_cache_list=[6, 18, 26, 32, 38, 42, 46, 48], block_cache_list_foreground=[1, 3, 8, 9, 22, 24, 28, 29, 30, 32, 34, 35, 36, 37, 38, 39], block_start_double=6, num_blocks_double=14, task='t2v-14B', size='832*480', frame_num=81, ckpt_dir='/data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B', offload_model=True, ulysses_size=1, ring_size=1, t5_fsdp=False, t5_cpu=False, dit_fsdp=False, save_file=None, prompt='Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stag\ne.', use_prompt_extend=False, prompt_extend_method='local_qwen', prompt_extend_model=None, prompt_extend_target_lang='zh', base_seed=42, image=None, sample_solver='unipc', sample_steps=50, sample_shift=5.0, sample_guide_scale=5.0)
+[2025-03-24 16:53:39,117] INFO: Generation model config: {'__name__': 'Config: Wan T2V 14B', 't5_model': 'umt5_xxl', 't5_dtype': torch.bfloat16, 'text_len': 512, 'param_dtype': torch.bfloat16, 'num_train_timesteps': 1000, 'sample_fps': 16, 'sample_neg_prompt': '色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走', 't5_checkpoint': 'models_t5_umt5-xxl-enc-bf16.pth', 't5_tokenizer': 'google/umt5-xxl', 'vae_checkpoint': 'Wan2.1_VAE.pth', 'vae_stride': (4, 8, 8), 'patch_size': (1, 2, 2), 'dim': 5120, 'ffn_dim': 13824, 'freq_dim': 256, 'num_heads': 40, 'num_layers': 40, 'window_size': (-1, -1), 'qk_norm': True, 'cross_attn_norm': True, 'eps': 1e-06}
+[2025-03-24 16:53:39,117] INFO: Input prompt: Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stag
+e.
+[2025-03-24 16:53:39,118] INFO: Creating WanT2V pipeline.
+[2025-03-24 16:53:46,615] INFO: offload_model is not specified, set to True.
+[2025-03-24 16:53:46,616] INFO: Generation job args: Namespace(delta_cache=True, step_start=6, step_interval=6, block_start=6, num_blocks=28, block_cache_list_background=[0, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25, 26, 27, 28, 29, 30, 31, 32, 37, 38], step_cache_list=[6, 18, 26, 32, 38, 42, 46, 48], block_cache_list_foreground=[1, 3, 8, 9, 22, 24, 28, 29, 30, 32, 34, 35, 36, 37, 38, 39], block_start_double=6, num_blocks_double=14, task='t2v-14B', size='832*480', frame_num=81, ckpt_dir='/data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B', offload_model=True, ulysses_size=1, ring_size=1, t5_fsdp=False, t5_cpu=False, dit_fsdp=False, save_file=None, prompt='Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stag\ne.', use_prompt_extend=False, prompt_extend_method='local_qwen', prompt_extend_model=None, prompt_extend_target_lang='zh', base_seed=42, image=None, sample_solver='unipc', sample_steps=50, sample_shift=5.0, sample_guide_scale=5.0)
+[2025-03-24 16:53:46,617] INFO: Generation model config: {'__name__': 'Config: Wan T2V 14B', 't5_model': 'umt5_xxl', 't5_dtype': torch.bfloat16, 'text_len': 512, 'param_dtype': torch.bfloat16, 'num_train_timesteps': 1000, 'sample_fps': 16, 'sample_neg_prompt': '色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走', 't5_checkpoint': 'models_t5_umt5-xxl-enc-bf16.pth', 't5_tokenizer': 'google/umt5-xxl', 'vae_checkpoint': 'Wan2.1_VAE.pth', 'vae_stride': (4, 8, 8), 'patch_size': (1, 2, 2), 'dim': 5120, 'ffn_dim': 13824, 'freq_dim': 256, 'num_heads': 40, 'num_layers': 40, 'window_size': (-1, -1), 'qk_norm': True, 'cross_attn_norm': True, 'eps': 1e-06}
+[2025-03-24 16:53:46,617] INFO: Input prompt: Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stag
+e.
+[2025-03-24 16:53:46,617] INFO: Creating WanT2V pipeline.
+[2025-03-24 16:53:51,567] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/models_t5_umt5-xxl-enc-bf16.pth
+[2025-03-24 16:53:56,329] INFO: offload_model is not specified, set to True.
+[2025-03-24 16:53:56,329] INFO: Generation job args: Namespace(delta_cache=True, step_start=6, step_interval=6, block_start=6, num_blocks=28, block_cache_list_background=[0, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25, 26, 27, 28, 29, 30, 31, 32, 37, 38], step_cache_list=[6, 18, 26, 32, 38, 42, 46, 48], block_cache_list_foreground=[1, 3, 8, 9, 22, 24, 28, 29, 30, 32, 34, 35, 36, 37, 38, 39], block_start_double=6, num_blocks_double=14, task='t2v-14B', size='832*480', frame_num=81, ckpt_dir='/data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B', offload_model=True, ulysses_size=1, ring_size=1, t5_fsdp=False, t5_cpu=False, dit_fsdp=False, save_file=None, prompt='Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stag\ne.', use_prompt_extend=False, prompt_extend_method='local_qwen', prompt_extend_model=None, prompt_extend_target_lang='zh', base_seed=42, image=None, sample_solver='unipc', sample_steps=50, sample_shift=5.0, sample_guide_scale=5.0)
+[2025-03-24 16:53:56,330] INFO: Generation model config: {'__name__': 'Config: Wan T2V 14B', 't5_model': 'umt5_xxl', 't5_dtype': torch.bfloat16, 'text_len': 512, 'param_dtype': torch.bfloat16, 'num_train_timesteps': 1000, 'sample_fps': 16, 'sample_neg_prompt': '色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走', 't5_checkpoint': 'models_t5_umt5-xxl-enc-bf16.pth', 't5_tokenizer': 'google/umt5-xxl', 'vae_checkpoint': 'Wan2.1_VAE.pth', 'vae_stride': (4, 8, 8), 'patch_size': (1, 2, 2), 'dim': 5120, 'ffn_dim': 13824, 'freq_dim': 256, 'num_heads': 40, 'num_layers': 40, 'window_size': (-1, -1), 'qk_norm': True, 'cross_attn_norm': True, 'eps': 1e-06}
+[2025-03-24 16:53:56,330] INFO: Input prompt: Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stag
+e.
+[2025-03-24 16:53:56,330] INFO: Creating WanT2V pipeline.
+[2025-03-24 16:53:59,663] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/models_t5_umt5-xxl-enc-bf16.pth
+[2025-03-24 16:54:03,453] INFO: offload_model is not specified, set to True.
+[2025-03-24 16:54:03,453] INFO: Generation job args: Namespace(delta_cache=True, step_start=6, step_interval=6, block_start=6, num_blocks=28, block_cache_list_background=[0, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25, 26, 27, 28, 29, 30, 31, 32, 37, 38], step_cache_list=[6, 18, 26, 32, 38, 42, 46, 48], block_cache_list_foreground=[1, 3, 8, 9, 22, 24, 28, 29, 30, 32, 34, 35, 36, 37, 38, 39], block_start_double=6, num_blocks_double=14, task='t2v-14B', size='832*480', frame_num=81, ckpt_dir='/data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B', offload_model=True, ulysses_size=1, ring_size=1, t5_fsdp=False, t5_cpu=False, dit_fsdp=False, save_file=None, prompt='Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stag\ne.', use_prompt_extend=False, prompt_extend_method='local_qwen', prompt_extend_model=None, prompt_extend_target_lang='zh', base_seed=42, image=None, sample_solver='unipc', sample_steps=50, sample_shift=5.0, sample_guide_scale=5.0)
+[2025-03-24 16:54:03,454] INFO: Generation model config: {'__name__': 'Config: Wan T2V 14B', 't5_model': 'umt5_xxl', 't5_dtype': torch.bfloat16, 'text_len': 512, 'param_dtype': torch.bfloat16, 'num_train_timesteps': 1000, 'sample_fps': 16, 'sample_neg_prompt': '色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走', 't5_checkpoint': 'models_t5_umt5-xxl-enc-bf16.pth', 't5_tokenizer': 'google/umt5-xxl', 'vae_checkpoint': 'Wan2.1_VAE.pth', 'vae_stride': (4, 8, 8), 'patch_size': (1, 2, 2), 'dim': 5120, 'ffn_dim': 13824, 'freq_dim': 256, 'num_heads': 40, 'num_layers': 40, 'window_size': (-1, -1), 'qk_norm': True, 'cross_attn_norm': True, 'eps': 1e-06}
+[2025-03-24 16:54:03,454] INFO: Input prompt: Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stag
+e.
+[2025-03-24 16:54:03,454] INFO: Creating WanT2V pipeline.
+[2025-03-24 16:54:11,850] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/models_t5_umt5-xxl-enc-bf16.pth
+[2025-03-24 16:54:20,634] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/models_t5_umt5-xxl-enc-bf16.pth
+[2025-03-24 16:54:32,623] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/models_t5_umt5-xxl-enc-bf16.pth
+[2025-03-24 16:54:40,677] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/models_t5_umt5-xxl-enc-bf16.pth
+[2025-03-24 16:54:50,707] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/models_t5_umt5-xxl-enc-bf16.pth
+[2025-03-24 16:54:57,065] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/models_t5_umt5-xxl-enc-bf16.pth
+[2025-03-24 16:56:35,696] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/Wan2.1_VAE.pth
+[2025-03-24 16:56:35,711] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/Wan2.1_VAE.pth
+[2025-03-24 16:56:35,745] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/Wan2.1_VAE.pth
+[2025-03-24 16:56:35,751] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/Wan2.1_VAE.pth
+[2025-03-24 16:56:35,754] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/Wan2.1_VAE.pth
+[2025-03-24 16:56:35,767] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/Wan2.1_VAE.pth
+[2025-03-24 16:56:35,769] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/Wan2.1_VAE.pth
+[2025-03-24 16:56:35,779] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/Wan2.1_VAE.pth
+[2025-03-24 16:56:43,528] INFO: Creating WanModel from /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B
+[2025-03-24 16:56:43,532] INFO: Creating WanModel from /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B
+[2025-03-24 16:56:43,537] INFO: Creating WanModel from /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B
+[2025-03-24 16:56:43,545] INFO: Creating WanModel from /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B
+[2025-03-24 16:56:43,554] INFO: Creating WanModel from /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B
+[2025-03-24 16:56:43,568] INFO: Creating WanModel from /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B
+[2025-03-24 16:56:43,569] INFO: Creating WanModel from /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B
+[2025-03-24 16:56:43,571] INFO: Creating WanModel from /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B
+[2025-03-24 17:08:02,373] INFO: Generating video ...
+[2025-03-24 17:08:04,412] INFO: Generating video ...
+[2025-03-24 17:08:04,412] INFO: Generating video ...
+[2025-03-24 17:08:04,412] INFO: Generating video ...
+[2025-03-24 17:08:04,412] INFO: Generating video ...
+[2025-03-24 17:08:04,412] INFO: Generating video ...
+[2025-03-24 17:08:04,412] INFO: Generating video ...
+[2025-03-24 17:08:04,412] INFO: Generating video ...
+  0%|          | 0/50 [00:00<?, ?it/s]  0%|          | 0/50 [00:00<?, ?it/s]  0%|          | 0/50 [00:00<?, ?it/s]  0%|          | 0/50 [00:00<?, ?it/s]  0%|          | 0/50 [00:00<?, ?it/s]  0%|          | 0/50 [00:00<?, ?it/s]  0%|          | 0/50 [00:00<?, ?it/s]  0%|          | 0/50 [00:00<?, ?it/s]  2%|▏         | 1/50 [00:10<08:12, 10.05s/it]  2%|▏         | 1/50 [00:09<08:03,  9.86s/it]  2%|▏         | 1/50 [00:09<07:58,  9.77s/it]  2%|▏         | 1/50 [00:09<08:07,  9.94s/it]  2%|▏         | 1/50 [00:09<08:08,  9.96s/it]  2%|▏         | 1/50 [00:10<08:12, 10.05s/it]  2%|▏         | 1/50 [00:09<08:07,  9.95s/it]  2%|▏         | 1/50 [00:10<08:12, 10.05s/it]  4%|▍         | 2/50 [00:19<07:58,  9.97s/it]  4%|▍         | 2/50 [00:19<07:45,  9.69s/it]  4%|▍         | 2/50 [00:19<07:49,  9.78s/it]  4%|▍         | 2/50 [00:19<07:55,  9.91s/it]  4%|▍         | 2/50 [00:19<07:55,  9.92s/it]  4%|▍         | 2/50 [00:19<07:53,  9.86s/it]  4%|▍         | 2/50 [00:19<07:57,  9.94s/it]  4%|▍         | 2/50 [00:20<08:00, 10.00s/it]  6%|▌         | 3/50 [00:29<07:48,  9.97s/it]  6%|▌         | 3/50 [00:29<07:34,  9.68s/it]  6%|▌         | 3/50 [00:29<07:38,  9.76s/it]  6%|▌         | 3/50 [00:29<07:45,  9.91s/it]  6%|▌         | 3/50 [00:29<07:42,  9.84s/it]  6%|▌         | 3/50 [00:29<07:46,  9.92s/it]  6%|▌         | 3/50 [00:29<07:46,  9.92s/it]  6%|▌         | 3/50 [00:29<07:49,  9.98s/it]  8%|▊         | 4/50 [00:39<07:38,  9.97s/it]  8%|▊         | 4/50 [00:38<07:24,  9.66s/it]  8%|▊         | 4/50 [00:39<07:28,  9.75s/it]  8%|▊         | 4/50 [00:39<07:32,  9.83s/it]  8%|▊         | 4/50 [00:39<07:35,  9.91s/it]  8%|▊         | 4/50 [00:39<07:35,  9.91s/it]  8%|▊         | 4/50 [00:39<07:35,  9.91s/it]  8%|▊         | 4/50 [00:39<07:38,  9.97s/it] 10%|█         | 5/50 [00:49<07:28,  9.96s/it] 10%|█         | 5/50 [00:48<07:14,  9.65s/it] 10%|█         | 5/50 [00:48<07:18,  9.74s/it] 10%|█         | 5/50 [00:49<07:22,  9.82s/it] 10%|█         | 5/50 [00:49<07:25,  9.91s/it] 10%|█         | 5/50 [00:49<07:25,  9.90s/it] 10%|█         | 5/50 [00:49<07:25,  9.91s/it] 10%|█         | 5/50 [00:49<07:28,  9.97s/it] 12%|█▏        | 6/50 [00:59<07:18,  9.97s/it] 12%|█▏        | 6/50 [00:57<07:04,  9.65s/it] 12%|█▏        | 6/50 [00:58<07:05,  9.67s/it]
+Traceback (most recent call last):
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/generate.py", line 485, in <module>
+    generate(args)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/generate.py", line 356, in generate
+    video = wan_t2v.generate(
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/text2video.py", line 260, in generate
+    noise_pred_cond = self.model(latent_model_input, is_cond=True, step=i,t=timestep, **arg_c)[0] #conditioned
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/modules/model.py", line 569, in forward
+    x = self.cache_cond.forward_single_original(block, step, block_idx, x, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/cache.py", line 199, in forward_single_original
+    cache = hidden_states - self.prev_hidden
+TypeError: unsupported operand type(s) for -: 'Tensor' and 'NoneType'
+ 12%|█▏        | 6/50 [00:58<07:08,  9.73s/it] 12%|█▏        | 6/50 [00:58<07:09,  9.75s/it]
+Traceback (most recent call last):
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/generate.py", line 485, in <module>
+    generate(args)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/generate.py", line 356, in generate
+    video = wan_t2v.generate(
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/text2video.py", line 260, in generate
+    noise_pred_cond = self.model(latent_model_input, is_cond=True, step=i,t=timestep, **arg_c)[0] #conditioned
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/modules/model.py", line 569, in forward
+    x = self.cache_cond.forward_single_original(block, step, block_idx, x, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/cache.py", line 199, in forward_single_original
+    cache = hidden_states - self.prev_hidden
+TypeError: unsupported operand type(s) for -: 'Tensor' and 'NoneType'
+ 12%|█▏        | 6/50 [00:59<07:12,  9.83s/it] 12%|█▏        | 6/50 [00:59<07:12,  9.84s/it]
+Traceback (most recent call last):
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/generate.py", line 485, in <module>
+    generate(args)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/generate.py", line 356, in generate
+    video = wan_t2v.generate(
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/text2video.py", line 260, in generate
+    noise_pred_cond = self.model(latent_model_input, is_cond=True, step=i,t=timestep, **arg_c)[0] #conditioned
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/modules/model.py", line 569, in forward
+    x = self.cache_cond.forward_single_original(block, step, block_idx, x, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/cache.py", line 199, in forward_single_original
+    cache = hidden_states - self.prev_hidden
+TypeError: unsupported operand type(s) for -: 'Tensor' and 'NoneType'
+ 12%|█▏        | 6/50 [00:59<07:16,  9.91s/it] 12%|█▏        | 6/50 [00:59<07:16,  9.91s/it]
+Traceback (most recent call last):
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/generate.py", line 485, in <module>
+    generate(args)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/generate.py", line 356, in generate
+    video = wan_t2v.generate(
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/text2video.py", line 260, in generate
+    noise_pred_cond = self.model(latent_model_input, is_cond=True, step=i,t=timestep, **arg_c)[0] #conditioned
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/modules/model.py", line 569, in forward
+    x = self.cache_cond.forward_single_original(block, step, block_idx, x, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/cache.py", line 199, in forward_single_original
+    cache = hidden_states - self.prev_hidden
+TypeError: unsupported operand type(s) for -: 'Tensor' and 'NoneType'
+ 12%|█▏        | 6/50 [00:59<07:15,  9.91s/it] 12%|█▏        | 6/50 [00:59<07:15,  9.90s/it] 12%|█▏        | 6/50 [00:59<07:18,  9.96s/it] 12%|█▏        | 6/50 [00:59<07:18,  9.98s/it]
+Traceback (most recent call last):
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/generate.py", line 485, in <module>
+    generate(args)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/generate.py", line 356, in generate
+    video = wan_t2v.generate(
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/text2video.py", line 260, in generate
+    noise_pred_cond = self.model(latent_model_input, is_cond=True, step=i,t=timestep, **arg_c)[0] #conditioned
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/modules/model.py", line 569, in forward
+    x = self.cache_cond.forward_single_original(block, step, block_idx, x, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/cache.py", line 199, in forward_single_original
+    cache = hidden_states - self.prev_hidden
+TypeError: unsupported operand type(s) for -: 'Tensor' and 'NoneType'
+ 14%|█▍        | 7/50 [01:09<07:09,  9.98s/it] 14%|█▍        | 7/50 [01:09<07:06,  9.92s/it] 14%|█▍        | 7/50 [01:09<07:06,  9.91s/it] 16%|█▌        | 8/50 [01:13<05:32,  7.92s/it] 18%|█▊        | 9/50 [01:16<04:28,  6.55s/it] 16%|█▌        | 8/50 [01:16<06:23,  9.13s/it] 16%|█▌        | 8/50 [01:16<06:23,  9.12s/it] 20%|██        | 10/50 [01:20<03:44,  5.61s/it] 22%|██▏       | 11/50 [01:23<03:13,  4.97s/it] 18%|█▊        | 9/50 [01:24<05:52,  8.61s/it] 18%|█▊        | 9/50 [01:24<05:52,  8.60s/it] 24%|██▍       | 12/50 [01:27<02:52,  4.53s/it] 20%|██        | 10/50 [01:31<05:29,  8.25s/it] 20%|██        | 10/50 [01:31<05:29,  8.24s/it] 26%|██▌       | 13/50 [01:37<03:48,  6.19s/it] 28%|██▊       | 14/50 [01:40<03:13,  5.38s/it] 22%|██▏       | 11/50 [01:39<05:11,  7.99s/it] 22%|██▏       | 11/50 [01:39<05:12,  8.01s/it] 30%|███       | 15/50 [01:44<02:48,  4.82s/it] 32%|███▏      | 16/50 [01:48<02:30,  4.43s/it] 24%|██▍       | 12/50 [01:46<04:57,  7.83s/it] 24%|██▍       | 12/50 [01:46<04:57,  7.84s/it] 34%|███▍      | 17/50 [01:51<02:17,  4.16s/it] 36%|███▌      | 18/50 [01:55<02:06,  3.97s/it] 26%|██▌       | 13/50 [01:56<05:13,  8.46s/it] 26%|██▌       | 13/50 [01:56<05:13,  8.47s/it] 38%|███▊      | 19/50 [02:05<02:59,  5.78s/it] 28%|██▊       | 14/50 [02:03<04:53,  8.15s/it] 28%|██▊       | 14/50 [02:04<04:53,  8.16s/it] 40%|████      | 20/50 [02:08<02:33,  5.10s/it] 42%|████▏     | 21/50 [02:12<02:14,  4.63s/it] 30%|███       | 15/50 [02:11<04:37,  7.94s/it] 30%|███       | 15/50 [02:11<04:38,  7.95s/it] 44%|████▍     | 22/50 [02:15<02:00,  4.29s/it] 46%|████▌     | 23/50 [02:19<01:49,  4.06s/it] 32%|███▏      | 16/50 [02:18<04:24,  7.79s/it] 32%|███▏      | 16/50 [02:18<04:25,  7.80s/it] 48%|████▊     | 24/50 [02:22<01:41,  3.90s/it] 34%|███▍      | 17/50 [02:26<04:13,  7.68s/it] 34%|███▍      | 17/50 [02:26<04:13,  7.69s/it] 50%|█████     | 25/50 [02:32<02:23,  5.73s/it] 36%|███▌      | 18/50 [02:33<04:03,  7.61s/it] 36%|███▌      | 18/50 [02:33<04:04,  7.63s/it] 52%|█████▏    | 26/50 [02:36<02:01,  5.07s/it] 54%|█████▍    | 27/50 [02:39<01:45,  4.60s/it] 56%|█████▌    | 28/50 [02:43<01:34,  4.28s/it] 38%|███▊      | 19/50 [02:43<04:17,  8.30s/it] 38%|███▊      | 19/50 [02:43<04:17,  8.32s/it] 58%|█████▊    | 29/50 [02:46<01:25,  4.05s/it] 60%|██████    | 30/50 [02:50<01:17,  3.89s/it] 40%|████      | 20/50 [02:51<04:01,  8.05s/it] 40%|████      | 20/50 [02:51<04:01,  8.06s/it] 62%|██████▏   | 31/50 [03:00<01:48,  5.72s/it] 42%|████▏     | 21/50 [02:58<03:48,  7.87s/it] 42%|████▏     | 21/50 [02:58<03:48,  7.88s/it] 64%|██████▍   | 32/50 [03:03<01:31,  5.06s/it] 66%|██████▌   | 33/50 [03:07<01:18,  4.60s/it] 44%|████▍     | 22/50 [03:05<03:36,  7.74s/it] 44%|████▍     | 22/50 [03:06<03:36,  7.75s/it] 68%|██████▊   | 34/50 [03:10<01:08,  4.28s/it] 70%|███████   | 35/50 [03:14<01:00,  4.05s/it] 46%|████▌     | 23/50 [03:13<03:26,  7.64s/it] 46%|████▌     | 23/50 [03:13<03:26,  7.66s/it] 72%|███████▏  | 36/50 [03:17<00:54,  3.89s/it] 48%|████▊     | 24/50 [03:20<03:16,  7.57s/it] 48%|████▊     | 24/50 [03:21<03:17,  7.60s/it] 74%|███████▍  | 37/50 [03:27<01:14,  5.73s/it] 76%|███████▌  | 38/50 [03:31<01:00,  5.06s/it] 50%|█████     | 25/50 [03:30<03:26,  8.26s/it] 50%|█████     | 25/50 [03:31<03:27,  8.30s/it] 78%|███████▊  | 39/50 [03:34<00:50,  4.60s/it] 80%|████████  | 40/50 [03:38<00:42,  4.28s/it] 52%|█████▏    | 26/50 [03:38<03:12,  8.01s/it] 52%|█████▏    | 26/50 [03:38<03:13,  8.05s/it] 82%|████████▏ | 41/50 [03:41<00:36,  4.05s/it] 84%|████████▍ | 42/50 [03:45<00:31,  3.89s/it] 54%|█████▍    | 27/50 [03:45<03:00,  7.83s/it] 54%|█████▍    | 27/50 [03:45<03:00,  7.87s/it] 56%|█████▌    | 28/50 [03:52<02:49,  7.70s/it] 56%|█████▌    | 28/50 [03:53<02:50,  7.74s/it] 86%|████████▌ | 43/50 [03:55<00:40,  5.73s/it] 88%|████████▊ | 44/50 [03:58<00:30,  5.06s/it] 58%|█████▊    | 29/50 [04:00<02:39,  7.61s/it] 90%|█████████ | 45/50 [04:02<00:23,  4.60s/it] 58%|█████▊    | 29/50 [04:00<02:40,  7.66s/it] 92%|█████████▏| 46/50 [04:06<00:17,  4.28s/it] 94%|█████████▍| 47/50 [04:09<00:12,  4.06s/it] 60%|██████    | 30/50 [04:07<02:31,  7.56s/it] 60%|██████    | 30/50 [04:08<02:31,  7.59s/it] 96%|█████████▌| 48/50 [04:13<00:07,  3.89s/it] 62%|██████▏   | 31/50 [04:17<02:36,  8.25s/it] 62%|██████▏   | 31/50 [04:18<02:37,  8.30s/it] 98%|█████████▊| 49/50 [04:23<00:05,  5.72s/it]100%|██████████| 50/50 [04:26<00:00,  5.06s/it]100%|██████████| 50/50 [04:26<00:00,  5.33s/it]
+ 64%|██████▍   | 32/50 [04:25<02:23,  8.00s/it] 64%|██████▍   | 32/50 [04:25<02:24,  8.04s/it] 66%|██████▌   | 33/50 [04:32<02:13,  7.82s/it] 66%|██████▌   | 33/50 [04:33<02:13,  7.87s/it] 68%|██████▊   | 34/50 [04:39<02:03,  7.70s/it] 68%|██████▊   | 34/50 [04:40<02:03,  7.75s/it] 70%|███████   | 35/50 [04:47<01:54,  7.61s/it] 70%|███████   | 35/50 [04:48<01:54,  7.66s/it] 72%|███████▏  | 36/50 [04:54<01:45,  7.55s/it] 72%|███████▏  | 36/50 [04:55<01:46,  7.59s/it][2025-03-24 17:13:12,849] INFO: Saving generated video to Two_anthropomorphic_cats_in_comfy_boxing_gear_and__cache[1, 5, 6, 7, 9, 10, 12, 13, 14, 15, 17, 18, 20, 22, 23, 24, 26, 29, 31, 33, 34, 35, 36, 37, 38, 39].mp4
+[2025-03-24 17:13:15,135] INFO: Finished.
+ 74%|███████▍  | 37/50 [05:04<01:47,  8.26s/it] 74%|███████▍  | 37/50 [05:05<01:47,  8.29s/it] 76%|███████▌  | 38/50 [05:11<01:36,  8.00s/it] 76%|███████▌  | 38/50 [05:12<01:36,  8.03s/it] 78%|███████▊  | 39/50 [05:19<01:26,  7.83s/it] 78%|███████▊  | 39/50 [05:20<01:26,  7.85s/it] 80%|████████  | 40/50 [05:26<01:17,  7.71s/it] 80%|████████  | 40/50 [05:27<01:17,  7.73s/it] 82%|████████▏ | 41/50 [05:34<01:08,  7.62s/it] 82%|████████▏ | 41/50 [05:35<01:08,  7.64s/it] 84%|████████▍ | 42/50 [05:41<01:00,  7.56s/it] 84%|████████▍ | 42/50 [05:42<01:00,  7.58s/it] 86%|████████▌ | 43/50 [05:51<00:57,  8.26s/it] 86%|████████▌ | 43/50 [05:52<00:57,  8.28s/it][2025-03-24 17:14:08,275] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/models_t5_umt5-xxl-enc-bf16.pth
+ 88%|████████▊ | 44/50 [05:58<00:48,  8.01s/it] 88%|████████▊ | 44/50 [05:59<00:48,  8.03s/it] 90%|█████████ | 45/50 [06:06<00:39,  7.83s/it] 90%|█████████ | 45/50 [06:07<00:39,  7.85s/it] 92%|█████████▏| 46/50 [06:13<00:30,  7.70s/it] 92%|█████████▏| 46/50 [06:14<00:30,  7.72s/it] 94%|█████████▍| 47/50 [06:21<00:22,  7.62s/it] 94%|█████████▍| 47/50 [06:22<00:22,  7.64s/it] 96%|█████████▌| 48/50 [06:28<00:15,  7.56s/it] 96%|█████████▌| 48/50 [06:29<00:15,  7.58s/it] 98%|█████████▊| 49/50 [06:38<00:08,  8.25s/it] 98%|█████████▊| 49/50 [06:39<00:08,  8.28s/it]100%|██████████| 50/50 [06:45<00:00,  8.00s/it]100%|██████████| 50/50 [06:45<00:00,  8.12s/it]
+100%|██████████| 50/50 [06:47<00:00,  8.03s/it]100%|██████████| 50/50 [06:47<00:00,  8.14s/it]
+[2025-03-24 17:15:34,962] INFO: Saving generated video to Two_anthropomorphic_cats_in_comfy_boxing_gear_and__cache[1, 7, 11, 12, 14, 15, 22, 29, 30, 35].mp4
+[2025-03-24 17:15:35,741] INFO: Saving generated video to Two_anthropomorphic_cats_in_comfy_boxing_gear_and__cache[2, 8, 9, 10, 15, 23, 27, 29, 32, 34].mp4
+[2025-03-24 17:15:36,933] INFO: Finished.
+[2025-03-24 17:15:38,332] INFO: Finished.
+[2025-03-24 17:16:29,027] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/models_t5_umt5-xxl-enc-bf16.pth
+[2025-03-24 17:16:32,003] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/models_t5_umt5-xxl-enc-bf16.pth
+[2025-03-24 17:16:44,246] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/Wan2.1_VAE.pth
+[2025-03-24 17:16:44,253] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/Wan2.1_VAE.pth
+[2025-03-24 17:16:44,340] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/Wan2.1_VAE.pth
+[2025-03-24 17:16:51,245] INFO: Creating WanModel from /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B
+[2025-03-24 17:16:51,306] INFO: Creating WanModel from /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B
+[2025-03-24 17:16:51,307] INFO: Creating WanModel from /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B
+[2025-03-24 17:30:32,146] INFO: Generating video ...
+[2025-03-24 17:30:33,070] INFO: Generating video ...
+[2025-03-24 17:30:33,131] INFO: Generating video ...
+  0%|          | 0/50 [00:00<?, ?it/s]  0%|          | 0/50 [00:00<?, ?it/s]  0%|          | 0/50 [00:00<?, ?it/s]  2%|▏         | 1/50 [00:09<08:01,  9.83s/it]  2%|▏         | 1/50 [00:09<08:02,  9.86s/it]  2%|▏         | 1/50 [00:09<08:05,  9.91s/it]  4%|▍         | 2/50 [00:19<07:53,  9.86s/it]  4%|▍         | 2/50 [00:19<07:53,  9.87s/it]  4%|▍         | 2/50 [00:19<07:56,  9.92s/it]  6%|▌         | 3/50 [00:29<07:45,  9.90s/it]  6%|▌         | 3/50 [00:29<07:44,  9.89s/it]  6%|▌         | 3/50 [00:29<07:46,  9.94s/it]  8%|▊         | 4/50 [00:39<07:35,  9.90s/it]  8%|▊         | 4/50 [00:39<07:35,  9.90s/it]  8%|▊         | 4/50 [00:39<07:37,  9.94s/it] 10%|█         | 5/50 [00:49<07:25,  9.90s/it] 10%|█         | 5/50 [00:49<07:25,  9.90s/it] 10%|█         | 5/50 [00:49<07:27,  9.95s/it] 12%|█▏        | 6/50 [00:59<07:15,  9.90s/it] 12%|█▏        | 6/50 [00:59<07:15,  9.90s/it] 12%|█▏        | 6/50 [00:59<07:15,  9.90s/it]
+Traceback (most recent call last):
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/generate.py", line 485, in <module>
+    generate(args)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/generate.py", line 356, in generate
+    video = wan_t2v.generate(
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/text2video.py", line 260, in generate
+    noise_pred_cond = self.model(latent_model_input, is_cond=True, step=i,t=timestep, **arg_c)[0] #conditioned
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/modules/model.py", line 569, in forward
+    x = self.cache_cond.forward_single_original(block, step, block_idx, x, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/cache.py", line 199, in forward_single_original
+    cache = hidden_states - self.prev_hidden
+TypeError: unsupported operand type(s) for -: 'Tensor' and 'NoneType'
+ 12%|█▏        | 6/50 [00:59<07:18,  9.96s/it] 14%|█▍        | 7/50 [01:09<07:06,  9.91s/it] 14%|█▍        | 7/50 [01:09<07:08,  9.97s/it] 16%|█▌        | 8/50 [01:12<05:28,  7.83s/it] 16%|█▌        | 8/50 [01:15<06:09,  8.81s/it] 18%|█▊        | 9/50 [01:16<04:22,  6.40s/it] 20%|██        | 10/50 [01:19<03:37,  5.44s/it] 18%|█▊        | 9/50 [01:22<05:30,  8.07s/it] 22%|██▏       | 11/50 [01:22<03:06,  4.78s/it] 24%|██▍       | 12/50 [01:26<02:44,  4.32s/it] 20%|██        | 10/50 [01:28<05:02,  7.57s/it] 22%|██▏       | 11/50 [01:35<04:42,  7.23s/it] 26%|██▌       | 13/50 [01:36<03:43,  6.04s/it] 28%|██▊       | 14/50 [01:39<03:07,  5.20s/it] 24%|██▍       | 12/50 [01:41<04:26,  7.00s/it] 30%|███       | 15/50 [01:42<02:41,  4.62s/it] 32%|███▏      | 16/50 [01:45<02:23,  4.21s/it] 34%|███▍      | 17/50 [01:49<02:09,  3.93s/it] 26%|██▌       | 13/50 [01:51<04:52,  7.89s/it] 36%|███▌      | 18/50 [01:52<01:59,  3.74s/it] 28%|██▊       | 14/50 [01:57<04:28,  7.46s/it] 38%|███▊      | 19/50 [02:02<02:53,  5.61s/it] 30%|███       | 15/50 [02:04<04:10,  7.16s/it] 40%|████      | 20/50 [02:05<02:27,  4.91s/it] 42%|████▏     | 21/50 [02:08<02:08,  4.42s/it] 32%|███▏      | 16/50 [02:10<03:56,  6.95s/it] 44%|████▍     | 22/50 [02:12<01:53,  4.07s/it] 46%|████▌     | 23/50 [02:15<01:43,  3.83s/it] 34%|███▍      | 17/50 [02:17<03:44,  6.80s/it] 48%|████▊     | 24/50 [02:18<01:35,  3.66s/it] 36%|███▌      | 18/50 [02:23<03:34,  6.70s/it] 50%|█████     | 25/50 [02:28<02:19,  5.56s/it] 52%|█████▏    | 26/50 [02:31<01:56,  4.87s/it] 38%|███▊      | 19/50 [02:33<03:57,  7.67s/it] 54%|█████▍    | 27/50 [02:35<01:41,  4.39s/it] 56%|█████▌    | 28/50 [02:38<01:29,  4.06s/it] 40%|████      | 20/50 [02:40<03:39,  7.31s/it] 58%|█████▊    | 29/50 [02:41<01:20,  3.82s/it] 60%|██████    | 30/50 [02:45<01:13,  3.65s/it] 42%|████▏     | 21/50 [02:46<03:24,  7.06s/it] 44%|████▍     | 22/50 [02:53<03:12,  6.88s/it] 62%|██████▏   | 31/50 [02:55<01:45,  5.56s/it] 64%|██████▍   | 32/50 [02:58<01:27,  4.87s/it] 46%|████▌     | 23/50 [02:59<03:02,  6.75s/it] 66%|██████▌   | 33/50 [03:01<01:14,  4.39s/it] 68%|██████▊   | 34/50 [03:04<01:04,  4.05s/it] 48%|████▊     | 24/50 [03:06<02:53,  6.68s/it] 70%|███████   | 35/50 [03:08<00:57,  3.82s/it] 72%|███████▏  | 36/50 [03:11<00:51,  3.65s/it] 50%|█████     | 25/50 [03:16<03:11,  7.65s/it] 52%|█████▏    | 26/50 [03:22<02:55,  7.30s/it] 74%|███████▍  | 37/50 [03:21<01:12,  5.55s/it] 76%|███████▌  | 38/50 [03:24<00:58,  4.87s/it] 54%|█████▍    | 27/50 [03:28<02:42,  7.05s/it] 78%|███████▊  | 39/50 [03:27<00:48,  4.39s/it] 80%|████████  | 40/50 [03:31<00:40,  4.05s/it] 56%|█████▌    | 28/50 [03:35<02:31,  6.87s/it] 82%|████████▏ | 41/50 [03:34<00:34,  3.82s/it] 84%|████████▍ | 42/50 [03:37<00:29,  3.65s/it] 58%|█████▊    | 29/50 [03:41<02:21,  6.75s/it] 60%|██████    | 30/50 [03:48<02:13,  6.66s/it] 86%|████████▌ | 43/50 [03:47<00:38,  5.56s/it] 88%|████████▊ | 44/50 [03:50<00:29,  4.87s/it] 90%|█████████ | 45/50 [03:54<00:21,  4.39s/it] 62%|██████▏   | 31/50 [03:58<02:25,  7.65s/it] 92%|█████████▏| 46/50 [03:57<00:16,  4.05s/it] 94%|█████████▍| 47/50 [04:00<00:11,  3.82s/it] 64%|██████▍   | 32/50 [04:04<02:11,  7.30s/it] 96%|█████████▌| 48/50 [04:04<00:07,  3.65s/it] 66%|██████▌   | 33/50 [04:11<01:59,  7.05s/it] 98%|█████████▊| 49/50 [04:14<00:05,  5.55s/it] 68%|██████▊   | 34/50 [04:17<01:50,  6.88s/it]100%|██████████| 50/50 [04:17<00:00,  4.87s/it]100%|██████████| 50/50 [04:17<00:00,  5.15s/it]
+ 70%|███████   | 35/50 [04:24<01:41,  6.75s/it] 72%|███████▏  | 36/50 [04:30<01:33,  6.67s/it] 74%|███████▍  | 37/50 [04:40<01:39,  7.65s/it] 76%|███████▌  | 38/50 [04:47<01:27,  7.30s/it][2025-03-24 17:35:32,544] INFO: Saving generated video to Two_anthropomorphic_cats_in_comfy_boxing_gear_and__cache[1, 5, 6, 7, 9, 10, 12, 13, 14, 15, 17, 18, 20, 22, 23, 24, 26, 29, 31, 33, 34, 35, 36, 37, 38, 39].mp4
+ 78%|███████▊  | 39/50 [04:53<01:17,  7.05s/it][2025-03-24 17:35:35,182] INFO: Finished.
+ 80%|████████  | 40/50 [05:00<01:08,  6.88s/it] 82%|████████▏ | 41/50 [05:06<01:00,  6.76s/it] 84%|████████▍ | 42/50 [05:12<00:53,  6.67s/it] 86%|████████▌ | 43/50 [05:22<00:53,  7.66s/it] 88%|████████▊ | 44/50 [05:29<00:43,  7.30s/it] 90%|█████████ | 45/50 [05:35<00:35,  7.05s/it] 92%|█████████▏| 46/50 [05:42<00:27,  6.88s/it][2025-03-24 17:36:27,036] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/models_t5_umt5-xxl-enc-bf16.pth
+ 94%|█████████▍| 47/50 [05:48<00:20,  6.76s/it] 96%|█████████▌| 48/50 [05:55<00:13,  6.67s/it] 98%|█████████▊| 49/50 [06:05<00:07,  7.65s/it]100%|██████████| 50/50 [06:11<00:00,  7.30s/it]100%|██████████| 50/50 [06:11<00:00,  7.43s/it]
+[2025-03-24 17:37:26,463] INFO: Saving generated video to Two_anthropomorphic_cats_in_comfy_boxing_gear_and__cache[1, 7, 11, 12, 14, 15, 22, 29, 30, 35].mp4
+[2025-03-24 17:37:28,552] INFO: Finished.
+[2025-03-24 17:38:20,814] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/models_t5_umt5-xxl-enc-bf16.pth
+[2025-03-24 17:38:48,316] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/Wan2.1_VAE.pth
+[2025-03-24 17:38:56,311] INFO: Creating WanModel from /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B
+[2025-03-24 17:40:06,144] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/Wan2.1_VAE.pth
+[2025-03-24 17:40:10,632] INFO: Creating WanModel from /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B
+[2025-03-24 17:51:16,228] INFO: Generating video ...
+[2025-03-24 17:51:16,894] INFO: Generating video ...
+  0%|          | 0/50 [00:00<?, ?it/s]  0%|          | 0/50 [00:00<?, ?it/s]  2%|▏         | 1/50 [00:09<08:01,  9.83s/it]  2%|▏         | 1/50 [00:09<08:06,  9.92s/it]  4%|▍         | 2/50 [00:19<07:53,  9.86s/it]  4%|▍         | 2/50 [00:19<07:56,  9.93s/it]  6%|▌         | 3/50 [00:29<07:44,  9.87s/it]  6%|▌         | 3/50 [00:29<07:46,  9.94s/it]  8%|▊         | 4/50 [00:39<07:34,  9.88s/it]  8%|▊         | 4/50 [00:39<07:37,  9.94s/it] 10%|█         | 5/50 [00:49<07:24,  9.89s/it] 10%|█         | 5/50 [00:49<07:27,  9.94s/it] 12%|█▏        | 6/50 [00:59<07:15,  9.89s/it] 12%|█▏        | 6/50 [00:59<07:17,  9.95s/it] 14%|█▍        | 7/50 [01:09<07:05,  9.90s/it] 14%|█▍        | 7/50 [01:09<07:08,  9.96s/it] 14%|█▍        | 7/50 [01:09<07:08,  9.96s/it]
+Traceback (most recent call last):
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/generate.py", line 485, in <module>
+    generate(args)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/generate.py", line 356, in generate
+    video = wan_t2v.generate(
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/text2video.py", line 260, in generate
+    noise_pred_cond = self.model(latent_model_input, is_cond=True, step=i,t=timestep, **arg_c)[0] #conditioned
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/modules/model.py", line 569, in forward
+    x = self.cache_cond.forward_single_original(block, step, block_idx, x, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/cache.py", line 207, in forward_single_original
+    hidden_states = block(hidden_states, *args, **kwargs)
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/modules/model.py", line 298, in forward
+    y = self.self_attn(
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/modules/model.py", line 148, in forward
+    k=rope_apply(k, grid_sizes, freqs),
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 16, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/modules/model.py", line 67, in rope_apply
+    return torch.stack(output).float()
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 640.00 MiB. GPU 0 has a total capacity of 79.19 GiB of which 579.06 MiB is free. Including non-PyTorch memory, this process has 78.62 GiB memory in use. Of the allocated memory 76.08 GiB is allocated by PyTorch, and 1.55 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+ 16%|█▌        | 8/50 [01:13<05:36,  8.02s/it] 18%|█▊        | 9/50 [01:17<04:36,  6.76s/it] 20%|██        | 10/50 [01:21<03:56,  5.90s/it] 22%|██▏       | 11/50 [01:25<03:27,  5.32s/it] 24%|██▍       | 12/50 [01:29<03:06,  4.91s/it] 26%|██▌       | 13/50 [01:39<03:58,  6.44s/it] 28%|██▊       | 14/50 [01:43<03:25,  5.70s/it] 30%|███       | 15/50 [01:47<03:01,  5.18s/it] 32%|███▏      | 16/50 [01:51<02:44,  4.83s/it] 34%|███▍      | 17/50 [01:55<02:31,  4.58s/it] 36%|███▌      | 18/50 [01:59<02:20,  4.40s/it] 38%|███▊      | 19/50 [02:09<03:08,  6.07s/it] 40%|████      | 20/50 [02:13<02:43,  5.45s/it] 42%|████▏     | 21/50 [02:17<02:25,  5.01s/it] 44%|████▍     | 22/50 [02:20<02:11,  4.71s/it] 46%|████▌     | 23/50 [02:24<02:01,  4.49s/it] 48%|████▊     | 24/50 [02:28<01:52,  4.34s/it] 50%|█████     | 25/50 [02:38<02:30,  6.02s/it] 52%|█████▏    | 26/50 [02:42<02:09,  5.41s/it] 54%|█████▍    | 27/50 [02:46<01:54,  4.99s/it] 56%|█████▌    | 28/50 [02:50<01:43,  4.69s/it] 58%|█████▊    | 29/50 [02:54<01:34,  4.48s/it] 60%|██████    | 30/50 [02:58<01:26,  4.34s/it] 62%|██████▏   | 31/50 [03:08<01:54,  6.02s/it] 64%|██████▍   | 32/50 [03:12<01:37,  5.42s/it] 66%|██████▌   | 33/50 [03:16<01:25,  5.00s/it] 68%|██████▊   | 34/50 [03:21<01:15,  4.74s/it] 70%|███████   | 35/50 [03:24<01:07,  4.51s/it] 72%|███████▏  | 36/50 [03:28<01:00,  4.35s/it] 74%|███████▍  | 37/50 [03:38<01:18,  6.01s/it] 76%|███████▌  | 38/50 [03:42<01:04,  5.40s/it] 78%|███████▊  | 39/50 [03:46<00:54,  4.97s/it] 80%|████████  | 40/50 [03:50<00:46,  4.67s/it] 82%|████████▏ | 41/50 [03:54<00:40,  4.46s/it] 84%|████████▍ | 42/50 [03:58<00:34,  4.32s/it] 86%|████████▌ | 43/50 [04:08<00:41,  5.99s/it] 88%|████████▊ | 44/50 [04:12<00:32,  5.38s/it] 90%|█████████ | 45/50 [04:16<00:24,  4.96s/it] 92%|█████████▏| 46/50 [04:20<00:18,  4.66s/it] 94%|█████████▍| 47/50 [04:24<00:13,  4.46s/it] 96%|█████████▌| 48/50 [04:28<00:08,  4.31s/it] 98%|█████████▊| 49/50 [04:38<00:05,  5.99s/it]100%|██████████| 50/50 [04:42<00:00,  5.38s/it]100%|██████████| 50/50 [04:42<00:00,  5.65s/it]
+[2025-03-24 17:56:41,987] INFO: Saving generated video to Two_anthropomorphic_cats_in_comfy_boxing_gear_and__cache[1, 7, 11, 12, 14, 15, 22, 29, 30, 35].mp4
+[2025-03-24 17:56:44,454] INFO: Finished.
+[2025-03-24 17:57:37,449] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/models_t5_umt5-xxl-enc-bf16.pth
+[2025-03-24 18:00:42,643] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/Wan2.1_VAE.pth
+[2025-03-24 18:00:48,633] INFO: Creating WanModel from /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B
+[2025-03-24 18:11:13,006] INFO: Generating video ...
+  0%|          | 0/50 [00:00<?, ?it/s]  2%|▏         | 1/50 [00:09<08:01,  9.83s/it]  4%|▍         | 2/50 [00:19<07:53,  9.86s/it]  6%|▌         | 3/50 [00:29<07:44,  9.87s/it]  8%|▊         | 4/50 [00:39<07:34,  9.88s/it] 10%|█         | 5/50 [00:49<07:24,  9.89s/it] 12%|█▏        | 6/50 [00:59<07:15,  9.89s/it] 12%|█▏        | 6/50 [00:59<07:14,  9.88s/it]
+Traceback (most recent call last):
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/generate.py", line 485, in <module>
+    generate(args)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/generate.py", line 356, in generate
+    video = wan_t2v.generate(
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/text2video.py", line 260, in generate
+    noise_pred_cond = self.model(latent_model_input, is_cond=True, step=i,t=timestep, **arg_c)[0] #conditioned
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/modules/model.py", line 569, in forward
+    x = self.cache_cond.forward_single_original(block, step, block_idx, x, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/cache.py", line 199, in forward_single_original
+    cache = hidden_states - self.prev_hidden
+TypeError: unsupported operand type(s) for -: 'Tensor' and 'NoneType'
+[2025-03-25 03:14:49,726] INFO: offload_model is not specified, set to True.
+[2025-03-25 03:14:49,764] INFO: Generation job args: Namespace(delta_cache=True, step_start=6, step_interval=6, block_start=6, num_blocks=28, block_cache_list_background=[0, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25, 26, 27, 28, 29, 30, 31, 32, 37, 38], step_cache_list=[6, 18, 26, 32, 38, 42, 46, 48], block_cache_list_foreground=[1, 3, 8, 9, 22, 24, 28, 29, 30, 32, 34, 35, 36, 37, 38, 39], block_start_double=6, num_blocks_double=14, task='t2v-14B', size='832*480', frame_num=81, ckpt_dir='/data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B', offload_model=True, ulysses_size=1, ring_size=1, t5_fsdp=False, t5_cpu=False, dit_fsdp=False, save_file=None, prompt='Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stag\ne.', use_prompt_extend=False, prompt_extend_method='local_qwen', prompt_extend_model=None, prompt_extend_target_lang='zh', base_seed=42, image=None, sample_solver='unipc', sample_steps=50, sample_shift=5.0, sample_guide_scale=5.0)
+[2025-03-25 03:14:49,764] INFO: Generation model config: {'__name__': 'Config: Wan T2V 14B', 't5_model': 'umt5_xxl', 't5_dtype': torch.bfloat16, 'text_len': 512, 'param_dtype': torch.bfloat16, 'num_train_timesteps': 1000, 'sample_fps': 16, 'sample_neg_prompt': '色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走', 't5_checkpoint': 'models_t5_umt5-xxl-enc-bf16.pth', 't5_tokenizer': 'google/umt5-xxl', 'vae_checkpoint': 'Wan2.1_VAE.pth', 'vae_stride': (4, 8, 8), 'patch_size': (1, 2, 2), 'dim': 5120, 'ffn_dim': 13824, 'freq_dim': 256, 'num_heads': 40, 'num_layers': 40, 'window_size': (-1, -1), 'qk_norm': True, 'cross_attn_norm': True, 'eps': 1e-06}
+[2025-03-25 03:14:49,765] INFO: Input prompt: Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stag
+e.
+[2025-03-25 03:14:49,765] INFO: Creating WanT2V pipeline.
+[2025-03-25 03:15:43,410] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/models_t5_umt5-xxl-enc-bf16.pth
+[2025-03-25 03:17:40,998] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/Wan2.1_VAE.pth
+[2025-03-25 03:17:45,137] INFO: Creating WanModel from /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B
+[2025-03-25 03:25:54,046] INFO: Generating video ...
+  0%|          | 0/50 [00:00<?, ?it/s]  2%|▏         | 1/50 [00:09<08:05,  9.90s/it]  4%|▍         | 2/50 [00:19<07:52,  9.85s/it]  6%|▌         | 3/50 [00:29<07:42,  9.83s/it]  8%|▊         | 4/50 [00:39<07:31,  9.82s/it] 10%|█         | 5/50 [00:49<07:21,  9.81s/it] 12%|█▏        | 6/50 [00:58<07:11,  9.80s/it] 14%|█▍        | 7/50 [01:08<07:01,  9.81s/it] 16%|█▌        | 8/50 [01:14<05:56,  8.49s/it] 18%|█▊        | 9/50 [01:20<05:11,  7.60s/it] 20%|██        | 10/50 [01:25<04:39,  7.00s/it] 22%|██▏       | 11/50 [01:31<04:16,  6.59s/it] 24%|██▍       | 12/50 [01:36<03:59,  6.30s/it] 26%|██▌       | 13/50 [01:46<04:32,  7.36s/it] 28%|██▊       | 14/50 [01:52<04:06,  6.84s/it] 30%|███       | 15/50 [01:58<03:46,  6.48s/it] 32%|███▏      | 16/50 [02:03<03:31,  6.23s/it] 34%|███▍      | 17/50 [02:09<03:19,  6.06s/it] 36%|███▌      | 18/50 [02:15<03:09,  5.94s/it] 38%|███▊      | 19/50 [02:24<03:40,  7.10s/it] 40%|████      | 20/50 [02:30<03:19,  6.67s/it] 42%|████▏     | 21/50 [02:36<03:04,  6.36s/it] 44%|████▍     | 22/50 [02:41<02:52,  6.15s/it] 46%|████▌     | 23/50 [02:47<02:41,  6.00s/it] 48%|████▊     | 24/50 [02:53<02:33,  5.90s/it] 50%|█████     | 25/50 [03:02<02:56,  7.07s/it] 52%|█████▏    | 26/50 [03:08<02:39,  6.64s/it] 54%|█████▍    | 27/50 [03:14<02:25,  6.34s/it] 56%|█████▌    | 28/50 [03:19<02:15,  6.14s/it] 58%|█████▊    | 29/50 [03:25<02:05,  5.99s/it] 60%|██████    | 30/50 [03:31<01:57,  5.89s/it] 62%|██████▏   | 31/50 [03:40<02:14,  7.06s/it] 64%|██████▍   | 32/50 [03:46<01:59,  6.64s/it] 66%|██████▌   | 33/50 [03:52<01:47,  6.35s/it] 68%|██████▊   | 34/50 [03:57<01:38,  6.14s/it] 70%|███████   | 35/50 [04:03<01:29,  5.99s/it] 72%|███████▏  | 36/50 [04:09<01:22,  5.89s/it] 74%|███████▍  | 37/50 [04:19<01:31,  7.07s/it] 76%|███████▌  | 38/50 [04:24<01:19,  6.64s/it] 78%|███████▊  | 39/50 [04:30<01:09,  6.35s/it] 80%|████████  | 40/50 [04:36<01:01,  6.14s/it] 82%|████████▏ | 41/50 [04:41<00:53,  5.99s/it] 84%|████████▍ | 42/50 [04:47<00:47,  5.89s/it] 86%|████████▌ | 43/50 [04:57<00:49,  7.06s/it] 88%|████████▊ | 44/50 [05:02<00:39,  6.64s/it] 90%|█████████ | 45/50 [05:08<00:31,  6.34s/it] 92%|█████████▏| 46/50 [05:14<00:24,  6.13s/it] 94%|█████████▍| 47/50 [05:19<00:17,  5.99s/it] 96%|█████████▌| 48/50 [05:25<00:11,  5.88s/it] 98%|█████████▊| 49/50 [05:35<00:07,  7.06s/it]100%|██████████| 50/50 [05:40<00:00,  6.63s/it]100%|██████████| 50/50 [05:40<00:00,  6.82s/it]
+[2025-03-25 03:32:17,816] INFO: Saving generated video to Two_anthropomorphic_cats_in_comfy_boxing_gear_and__cache[2, 3, 4, 10, 13, 15, 18, 21, 25, 26, 27, 28, 29, 32, 34, 38, 39].mp4
+[2025-03-25 03:32:20,367] INFO: Finished.
+[2025-03-25 03:33:12,351] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/models_t5_umt5-xxl-enc-bf16.pth
+[2025-03-25 03:34:49,644] INFO: loading /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B/Wan2.1_VAE.pth
+[2025-03-25 03:34:54,318] INFO: Creating WanModel from /data/nas/xuran/ProfilingDiT/Wan2.1/Wan2.1-T2V-14B
+[2025-03-25 03:42:40,078] INFO: Generating video ...
+  0%|          | 0/50 [00:00<?, ?it/s]  2%|▏         | 1/50 [00:09<07:59,  9.78s/it]  4%|▍         | 2/50 [00:19<07:50,  9.79s/it]  6%|▌         | 3/50 [00:29<07:40,  9.79s/it]  8%|▊         | 4/50 [00:39<07:30,  9.79s/it] 10%|█         | 5/50 [00:48<07:20,  9.79s/it] 12%|█▏        | 6/50 [00:58<07:10,  9.79s/it] 12%|█▏        | 6/50 [00:58<07:10,  9.79s/it]
+Traceback (most recent call last):
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/generate.py", line 485, in <module>
+    
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/generate.py", line 356, in generate
+    t5_cpu=args.t5_cpu,
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/text2video.py", line 260, in generate
+    noise_pred_cond = self.model(latent_model_input, is_cond=True, step=i,t=timestep, **arg_c)[0] #conditioned
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/xuran/.conda/envs/wan/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/modules/model.py", line 569, in forward
+    x = self.cache_cond.forward_single_original(block, step, block_idx, x, **kwargs)
+  File "/data/nas/xuran/ProfilingDiT/Wan2.1/wan/cache.py", line 199, in forward_single_original
+    cache = hidden_states - self.prev_hidden
+TypeError: unsupported operand type(s) for -: 'Tensor' and 'NoneType'

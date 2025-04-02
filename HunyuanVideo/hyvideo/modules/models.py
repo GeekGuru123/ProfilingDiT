@@ -686,11 +686,11 @@ class HYVideoDiffusionTransformer(ModelMixin, ConfigMixin):
                     (freqs_cos, freqs_sin),
                 ]
             
-                if self.cache:
-                    x = self.cache.forward_single(block, step_idx, block_idx, *single_block_args)
-                else:
-                    x = block(*single_block_args)
-                # x = self.cache.forward_single(block, step_idx, block_idx, *single_block_args)
+                # if self.cache:
+                #     x = self.cache.forward_single_original(block, step_idx, block_idx, *single_block_args)
+                # else:
+                #     x = block(*single_block_args)
+                x = self.cache.forward_single_original(block, step_idx, block_idx, *single_block_args)
                 # x = block(*single_block_args)
 
         img = x[:, :img_seq_len, ...]

@@ -38,11 +38,11 @@ def add_deltacache_args(parser: argparse.ArgumentParser):
     group.add_argument("--block_start", type=int, default=6)
     group.add_argument("--num_blocks", type=int, default=28)
     # group.add_argument("--block_cache_list", type=list, default=[10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21])
-    group.add_argument("--block_cache_list_background", type=list, default=[0, 2, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 27, 31, 33])
-    # group.add_argument("--block_cache_list_background", type=list, default=[1, 3, 8, 9, 22, 24, 28, 29, 30, 32, 34, 35, 36, 37, 38, 39])
+    group.add_argument("--block_cache_list_background", type=list, default=[0, 2, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 27, 31, 33])#实际背景
+    # group.add_argument("--block_cache_list_background", type=list, default=[1, 3, 8, 9, 22, 24, 28, 29, 30, 32, 34, 35, 36, 37, 38, 39]) #实际前景
     group.add_argument("--step_cache_list", type=list, default=[6, 18, 26, 32, 38, 42, 46, 48])
-    group.add_argument("--block_cache_list_foreground", type=list, default=[1, 3, 8, 9, 22, 24, 28, 29, 30, 32, 34, 35, 36, 37, 38, 39])
-    # group.add_argument("--block_cache_list_foreground", type=list, default=[0, 2, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 27, 31, 33])
+    # group.add_argument("--block_cache_list_foreground", type=list, default=[1, 3, 8, 9, 22, 24, 28, 29, 30, 32, 34, 35, 36, 37, 38, 39])
+    group.add_argument("--block_cache_list_foreground", type=list, default=[0, 2, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 27, 31, 33])
 
     group.add_argument("--block_start_double", type=int, default=6)
     group.add_argument("--num_blocks_double", type=int, default=14)

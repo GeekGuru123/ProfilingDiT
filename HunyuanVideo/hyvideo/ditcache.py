@@ -71,7 +71,6 @@ class DitCache:
         full_range = set(range(40))  # 生成 0-39 的完整集合
         self.missing_numbers = sorted(full_range - set(self.block_cache_list_background))
 
-        
         m = len(self.block_cache_list_foreground)
         i1 = 0
 
@@ -87,7 +86,6 @@ class DitCache:
             else:  # 发现连续区间
                 self.start1.append(self.block_cache_list_foreground[i1] - 1)
                 self.end1.append(self.block_cache_list_foreground[j1])
-                # 记录所有连续的数字
                 self.continuous_numbers1.extend(self.block_cache_list_foreground[i1:j1+1])
             i1 = j1 + 1
 
@@ -113,8 +111,122 @@ class DitCache:
             return True
         return ((step_idx - self.step_start) % self.step_interval) == 0
 
+    def forward_single_original(self, block, step_idx, block_idx, hidden_states, *args, **kwargs):
+        """
+        前快后慢的step wise
+        For a single state:
+          - If the cache list is a consecutive range (e.g. 10 to 21), then:
+              * On a compute step:
+                  - For blocks in that range: if block_idx equals the last block
+                    (e.g. 21), compute the contiguous delta as
+                        output(21) - output(9)
+                    (where 9 is assumed to be the output of block 10-1).
+                  - For other blocks in the range, compute normally.
+              * On a cache step:
+                  - For any block in that range, if the contiguous delta is available,
+                    simply add the cached delta.
+          - Otherwise, use the usual per-block caching logic.
+        """
+        sample_optim_flag = True
+        # Before step_start: compute normally.
+        if sample_optim_flag:
+            if step_idx >= self.step_start:
+                if step_idx in self.step_cache_list:
+                    # if step_idx in [6, 8, 12, 18, 26, 38]:
+
+                    if block_idx in self.uncontinuous1: #[0, 2, [4, 7], [10,21], 23, [25, 27], 31, 33]
+                        prev_hidden_states = hidden_states.clone()
+                        hidden_states = block(hidden_states, *args, **kwargs)
+                        delta = hidden_states - prev_hidden_states
+                        self.delta_cache[block_idx] = delta
+                        return hidden_states
+                    elif block_idx in self.start1:
+                        
+                        hidden_states = block(hidden_states, *args, **kwargs)
+                        self.prev_hidden = hidden_states.clone()
+                        return hidden_states
+                    
+                    elif block_idx in self.end1:
+                        hidden_states = block(hidden_states, *args, **kwargs)
+                        cache = hidden_states - self.prev_hidden
+                        self.delta_cache[block_idx] = cache
+                        return hidden_states
+                    else:
+                        hidden_states = block(hidden_states, *args, **kwargs)
+                        return hidden_states
+                else:
+                    if block_idx in self.missing_numbers1: 
+                        hidden_states = block(hidden_states, *args, **kwargs)
+                        return hidden_states
+                    elif block_idx in self.uncontinuous1:
+                        hidden_states += self.delta_cache.get(block_idx)
+                        return hidden_states
+                    
+                    elif block_idx in self.end1:
+                        hidden_states += self.delta_cache.get(block_idx)
+                        return hidden_states
+                    
+                    elif block_idx in self.continuous_numbers1:
+                        return hidden_states
+                    else:
+                        hidden_states = block(hidden_states, *args, **kwargs)
+                        return hidden_states
+                        # print(len(self.uncontinguous_cache))
+        
+            elif step_idx < self.step_start:
+                hidden_states = block(hidden_states, *args, **kwargs)
+                return hidden_states
+        else:    
+            if step_idx >= self.step_start:
+                if (step_idx - self.step_start) % self.step_interval == 0:
+                    
+                    if block_idx in self.uncontinuous: #[0, 2, [4, 7], [10,21], 23, [25, 27], 31, 33]
+                        prev_hidden_states = hidden_states.clone()
+                        hidden_states = block(hidden_states, *args, **kwargs)
+                        delta = hidden_states - prev_hidden_states
+                        self.delta_cache[block_idx] = delta
+                        return hidden_states
+                    elif block_idx in self.start:
+                        
+                        hidden_states = block(hidden_states, *args, **kwargs)
+                        self.prev_hidden = hidden_states.clone()
+                        return hidden_states
+                    
+                    elif block_idx in self.end:
+                        hidden_states = block(hidden_states, *args, **kwargs)
+                        cache = hidden_states - self.prev_hidden
+                        self.delta_cache[block_idx] = cache
+                        return hidden_states
+                    else:
+                        hidden_states = block(hidden_states, *args, **kwargs)
+                        return hidden_states
+                else:
+                    if block_idx in self.missing_numbers: 
+                        hidden_states = block(hidden_states, *args, **kwargs)
+                        return hidden_states
+                    elif block_idx in self.uncontinuous:
+                        hidden_states += self.delta_cache.get(block_idx)
+                        return hidden_states
+                    
+                    elif block_idx in self.end:
+                        hidden_states += self.delta_cache.get(block_idx)
+                        return hidden_states
+                    
+                    elif block_idx in self.continuous_numbers:
+                        return hidden_states
+                    else:
+                        hidden_states = block(hidden_states, *args, **kwargs)
+                        return hidden_states
+                        # print(len(self.uncontinguous_cache))
+        
+                    
+            elif step_idx < self.step_start:
+                hidden_states = block(hidden_states, *args, **kwargs)
+                return hidden_states
+    #前后景交替
     def forward_single(self, block, step_idx, block_idx, hidden_states, *args, **kwargs):
         """
+        隔一组step分别cache前后景block
         For a single state:
           - If the cache list is a consecutive range (e.g. 10 to 21), then:
               * On a compute step:
@@ -266,8 +378,8 @@ class DitCache:
             elif step_idx < self.step_start:
                 hidden_states = block(hidden_states, *args, **kwargs)
                 return hidden_states
-        
-
+            
+            
     def forward_double(self, block, time_step, block_idx, hidden_states, condition_state,*args, **kwargs
         ):  
             """

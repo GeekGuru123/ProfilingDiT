@@ -29,29 +29,30 @@ def main():
 
     # Start sampling
     # TODO: batch inference check
-    outputs = hunyuan_video_sampler.predict(
-        prompt=args.prompt, 
-        height=args.video_size[0],
-        width=args.video_size[1],
-        video_length=args.video_length,
-        seed=args.seed,
-        negative_prompt=args.neg_prompt,
-        infer_steps=args.infer_steps,
-        guidance_scale=args.cfg_scale,
-        num_videos_per_prompt=args.num_videos,
-        flow_shift=args.flow_shift,
-        batch_size=args.batch_size,
-        embedded_guidance_scale=args.embedded_cfg_scale
-    )
-    samples = outputs['samples']
+    for i in range(2):
+        outputs = hunyuan_video_sampler.predict(
+            prompt=args.prompt, 
+            height=args.video_size[0],
+            width=args.video_size[1],
+            video_length=args.video_length,
+            seed=args.seed,
+            negative_prompt=args.neg_prompt,
+            infer_steps=args.infer_steps,
+            guidance_scale=args.cfg_scale,
+            num_videos_per_prompt=args.num_videos,
+            flow_shift=args.flow_shift,
+            batch_size=args.batch_size,
+            embedded_guidance_scale=args.embedded_cfg_scale
+        )
+        samples = outputs['samples']
     
-    # Save samples
-    if 'LOCAL_RANK' not in os.environ or int(os.environ['LOCAL_RANK']) == 0:
-        for i, sample in enumerate(samples):
-            sample = samples[i].unsqueeze(0)
-            cur_save_path = f"{save_path}/seed{outputs['seeds'][i]}_{outputs['prompts'][i][:100].replace('/','')}.mp4"
-            save_videos_grid(sample, cur_save_path, fps=24)
-            logger.info(f'Sample save to: {cur_save_path}')
+        # Save samples
+        if 'LOCAL_RANK' not in os.environ or int(os.environ['LOCAL_RANK']) == 0:
+            for i, sample in enumerate(samples):
+                sample = samples[i].unsqueeze(0)
+                cur_save_path = f"{save_path}/seed{outputs['seeds'][i]}_{outputs['prompts'][i][:100].replace('/','')}.mp4"
+                save_videos_grid(sample, cur_save_path, fps=24)
+                logger.info(f'Sample save to: {cur_save_path}')
 
 if __name__ == "__main__":
     main()
