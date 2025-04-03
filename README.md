@@ -30,6 +30,6 @@ python3 sample_video.py \
 ### WAN 2.1
 
 ```sh
-python generate.py  --task t2v-14B --size 832*480 --prompt "Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stage." --delta_cache
+python generate.py  --task t2v-14B --size 832*480 --frame_num 81 --prompt "Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stage." --delta_cache
 ```
 
