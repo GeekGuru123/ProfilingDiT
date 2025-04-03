@@ -85,7 +85,7 @@ class WanT2V:
         self.model = WanModel.from_pretrained(checkpoint_dir)
         self.model.eval().requires_grad_(False)
         
-                #init cache
+        #init cache
         if args.delta_cache:
             from .cache import DitCache
             

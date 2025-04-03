@@ -13,7 +13,7 @@ class DitCache:
         **kwargs
     ):
         self.step_start = step_start
-        self.step_interval = step_interval  # e.g., 4
+        self.step_interval = step_interval  # step interval T_s = f(s) setting, e.g., 4
         self.block_start = block_start
         self.num_blocks = num_blocks
         self.block_end = block_start + num_blocks - 1
@@ -36,39 +36,39 @@ class DitCache:
         self.block_cache_list_background = block_cache_list_background
         self.block_cache_list_foreground = block_cache_list_foreground
         self.step_cache_list = step_cache_list
-        self.uncontinuous = []      # 孤立的数字
-        self.start = []  # 连续区间前一个数字：连续区间的起始数字 - 1
-        self.end = []    # 连续区间的结束数字
-        self.continuous_numbers = []  # 所有连续的数字
-        self.missing_numbers = []  # 0-39 中去掉 block_cache_list 的剩余数字
+        self.uncontinuous = []  # Isolate number
+        self.start = []  # Previous number of continuous range: start number of continuous range - 1
+        self.end = []    # End number of continuous range
+        self.continuous_numbers = []  # All continuous numbers
+        self.missing_numbers = []  # Numbers remaining after removing block_cache_list from 0-39
         
-        self.uncontinuous1 = [] # 孤立的数字
-        self.start1 = []  # 连续区间前一个数字：连续区间的起始数字 - 1
-        self.end1 = []    # 连续区间的结束数字
-        self.continuous_numbers1 = []  # 所有连续的数字
-        self.missing_numbers1 = []  # 0-39 中去掉 block_cache_list 的剩余数字
+        self.uncontinuous1 = [] # Isolate number
+        self.start1 = []  # Previous number of continuous range: start number of continuous range - 1
+        self.end1 = []    # End number of continuous range
+        self.continuous_numbers1 = []  # All continuous numbers
+        self.missing_numbers1 = []  # Numbers remaining after removing block_cache_list from 0-39
 
         n = len(self.block_cache_list_background)
         i = 0
 
         while i < n:
-            # 记录当前连续区间的起始数字
+            # Record the starting number of the current continuous range
             current = self.block_cache_list_background[i]
             j = i
-            # 向后寻找连续的数字
+            # Find consecutive numbers
             while j + 1 < n and self.block_cache_list_background[j + 1] == self.block_cache_list_background[j] + 1:
                 j += 1
-            if i == j:  # 只有一个数字，不连续
+            if i == j:  # Only one number, not continuous
                 self.uncontinuous.append(self.block_cache_list_background[i])
-            else:  # 发现连续区间
+            else:  # Discover continuous range
                 self.start.append(self.block_cache_list_background[i] - 1)
                 self.end.append(self.block_cache_list_background[j])
-                # 记录所有连续的数字
+                # Record all continuous numbers
                 self.continuous_numbers.extend(self.block_cache_list_background[i:j+1])
             i = j + 1
 
-        # 计算缺失的数字（0-39 范围内不在 block_cache_list 中的数）
-        full_range = set(range(40))  # 生成 0-39 的完整集合
+        # Calculate missing numbers (numbers not in block_cache_list in the range 0-39)
+        full_range = set(range(40))  # Generate complete set of 0-39
         self.missing_numbers = sorted(full_range - set(self.block_cache_list_background))
 
         
@@ -76,23 +76,23 @@ class DitCache:
         i1 = 0
 
         while i1 < m:
-            # 记录当前连续区间的起始数字
+            # Record the starting number of the current continuous range
             current = self.block_cache_list_foreground[i1]
             j1 = i1
-            # 向后寻找连续的数字
+            # Find consecutive numbers
             while j1 + 1 < m and self.block_cache_list_foreground[j1 + 1] == self.block_cache_list_foreground[j1] + 1:
                 j1 += 1
-            if i1 == j1:  # 只有一个数字，不连续
+            if i1 == j1:  # Only one number, not continuous
                 self.uncontinuous1.append(self.block_cache_list_foreground[i1])
-            else:  # 发现连续区间
+            else:  # Discover continuous range
                 self.start1.append(self.block_cache_list_foreground[i1] - 1)
                 self.end1.append(self.block_cache_list_foreground[j1])
-                # 记录所有连续的数字
+                # Record all continuous numbers
                 self.continuous_numbers1.extend(self.block_cache_list_foreground[i1:j1+1])
             i1 = j1 + 1
 
-        # 计算缺失的数字（0-39 范围内不在 block_cache_list 中的数）
-        full_range = set(range(40))  # 生成 0-39 的完整集合
+        # Calculate missing numbers (numbers not in block_cache_list in the range 0-39)
+        full_range = set(range(40))  # Generate complete set of 0-39
         self.missing_numbers1 = sorted(full_range - set(self.block_cache_list_foreground))
 
         # For each block idx in not_cached_list, keep the previous output and delta history.
@@ -115,7 +115,7 @@ class DitCache:
 
     def forward_single_original(self, block, step_idx, block_idx, hidden_states, *args, **kwargs):
         """
-        前快后慢的step wise
+        Step-wise caching with faster forward and slower backward
         For a single state:
           - If the cache list is a consecutive range (e.g. 10 to 21), then:
               * On a compute step:
@@ -133,9 +133,10 @@ class DitCache:
         # Before step_start: compute normally.
         if sample_optim_flag: #前快后慢step wise
             if step_idx >= self.step_start:
-                if step_idx in self.step_cache_list:
+                # \mathcal{S}_{\text{comp}} = \{s \mid s \bmod T_s = 0, s > s_0\}
+                if step_idx in self.step_cache_list:    
                     # if step_idx in [6, 8, 12, 18, 26, 38]:
-                        
+                    # h_s = h_s + \Delta_{\text{cache}}^{(i)}
                     if block_idx in self.uncontinuous1: #[0, 2, [4, 7], [10,21], 23, [25, 27], 31, 33]
                         prev_hidden_states = hidden_states.clone()
                         hidden_states = block(hidden_states, *args, **kwargs)
@@ -222,13 +223,13 @@ class DitCache:
                         # print(len(self.uncontinguous_cache))
         
                     
-            elif step_idx < self.step_start: #开始step以前
+            elif step_idx < self.step_start: #Before step_start
                 hidden_states = block(hidden_states, *args, **kwargs)
                 return hidden_states
         
     def forward_single(self, block, step_idx, block_idx, hidden_states, *args, **kwargs):
         """
-        隔一组step分别cache前后景block
+        Cache foreground and background blocks alternately every few steps
         For a single state:
           - If the cache list is a consecutive range (e.g. 10 to 21), then:
               * On a compute step:
@@ -250,7 +251,7 @@ class DitCache:
                 if step_idx <=31:
                     if step_idx in [6, 26, 38, 46]:
                     # if step_idx in [6, 8, 12, 18, 26, 38]:
-                        
+                        # h_s = h_s + \Delta_{\text{cache}}^{(i)}
                         if block_idx in self.uncontinuous1: #[0, 2, [4, 7], [10,21], 23, [25, 27], 31, 33]
                             prev_hidden_states = hidden_states.clone()
                             hidden_states = block(hidden_states, *args, **kwargs)
