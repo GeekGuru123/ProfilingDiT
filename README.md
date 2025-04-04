@@ -1,25 +1,46 @@
 # ProfilingDiT
 
 ## Official Implementation of ["Model Reveals What to Cache: Profiling-Based Feature Reuse for Video Diffusion Models"]
-## [📄 Paper](docs/Model_Reveals_What_to_Cache__Profiling_Based_Feature_Reuse_for_Video_Diffusion_Models.pdf)
+## 📄 [Paper](docs/Model_Reveals_What_to_Cache__Profiling_Based_Feature_Reuse_for_Video_Diffusion_Models.pdf)
 
-This repository contains the official implementation of our paper: *Model Reveals What to Cache: Profiling-Based Feature Reuse for Video Diffusion Models*. Please follow the official link for setting up the environment.
+This repository contains the official implementation of our paper: *Model Reveals What to Cache: Profiling-Based Feature Reuse for Video Diffusion Models*.  
+Please follow the official link for setting up the environment.
+
 ![cover img](./docs/cover_fig.jpg)
 
+---
+
+## 📌 Table of Contents
+- [🔥 Latest News](#-latest-news)
+- [📀 Installation](#-installation)
+- [🚀 Running the Code](#-running-the-code)
+- [📊 Quantitative Comparison](#-quantitative-comparison)
+- [⚡ Scale to Multi-GPU](#-scale-to-multi-gpu)
+- [📝 To-Do List](#-to-do-list)
+
+---
+
 ## 🔥 Latest News
-**Permalink: [🔥 Latest News](#latest-news)**  
+🔔 **[Latest News](#latest-news)**  
 • If you like our project, please give us a star ⭐ on GitHub for the latest update.  
-• [2025/04/04] 🎉 Submitted to arXiv for review.  
-• [2025/04/04] 🔥 Released open-source code for the latest model.  
+• **[2025/04/04]** 🎉 Submitted to arXiv for review.  
+• **[2025/04/04]** 🔥 Released open-source code for the latest model.  
 
-## Running the Code
+---
 
-## Installation
+## 📀 Installation
 
 Follow the official [HunyuanVideo](https://github.com/Tencent/HunyuanVideo) and [WAN 2.1](https://github.com/Wan-Video/Wan2.1) environment setup guide.
 
-### HunyuanVideo
+```sh
+pip install -r requirements.txt
+```
 
+---
+
+## 🚀 Running the Code
+
+### **HunyuanVideo**
 ```sh
 cd HunyuanVideo
 python3 sample_video.py \
@@ -36,8 +57,7 @@ python3 sample_video.py \
     --delta_cache
 ```
 
-### WAN 2.1
-
+### **WAN 2.1**
 ```sh
 cd Wan2.1
 python generate.py \
@@ -47,6 +67,9 @@ python generate.py \
     --prompt "Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stage." \
     --delta_cache
 ```
+
+---
+
 ## 📊 Quantitative Comparison
 
 | Method | VBench ↑ | LPIPS ↓ | PSNR ↑ | SSIM ↑ | FID ↓ | Latency (ms) ↓ | Speedup ↑ |
@@ -62,11 +85,38 @@ python generate.py \
 **Table:** Quantitative comparison with prior methods under HunyuanVideo and Wan2.1 baselines.  
 🔺 **Higher is better** for VBench, PSNR, SSIM, and Speedup.  
 🔻 **Lower is better** for LPIPS, FID, and Latency.
-## 🚀 Scale to Multi-GPU
 
-Our method efficiently scales across multiple GPUs to accelerate inference and training. By leveraging model parallelism and optimized memory management, we achieve significant speedup without compromising quality.
+---
+
+## ⚡ Scale to Multi-GPU
+
+Our method efficiently scales across multiple GPUs to accelerate inference and training.  
+By leveraging **model parallelism**, **NCCL communication**, and **optimized memory management**, we achieve significant speedup without compromising quality.
+
+### 🔑 Key Features:
+- **Increased Throughput** 🚀: Distributes computation across multiple GPUs to process more frames in parallel.
+- **Optimized Memory Usage** 🔧: Dynamically allocates memory to prevent bottlenecks.
+- **Flexible Deployment** 💡: Works seamlessly on both single-node and distributed setups.
+- **NCCL Optimization** 🔄: Uses efficient GPU-GPU communication to minimize overhead.
 
 ![Multi-GPU Scaling](./docs/resolution_gpu.jpg)
-# To-Do List:
-- [ ] OpenSora2
-- [ ] CogVideoX
+
+For detailed setup and configurations, please refer to our [Multi-GPU Guide](./docs/multi_gpu.md). 🚀
+
+---
+
+## 📝 To-Do List:
+- [ ] **OpenSora2** 🏗️ (Upcoming Support)
+- [ ] **Optimize Caching for CogVideoX** ⚙️
+
+---
+
+## ⭐ Contributing
+If you find our project helpful, feel free to fork and submit pull requests! Contributions are always welcome.  
+
+For major contributions, please open an issue first to discuss the proposed changes.
+
+---
+
+## 📜 License
+This project is licensed under the Apache 2.0 License.
