@@ -4,7 +4,13 @@
 ## [📄 Paper](docs/Model_Reveals_What_to_Cache__Profiling_Based_Feature_Reuse_for_Video_Diffusion_Models.pdf)
 
 This repository contains the official implementation of our paper: *Model Reveals What to Cache: Profiling-Based Feature Reuse for Video Diffusion Models*. Please follow the official link for setting up the environment.
+![cover img](./docs/cover_fig.jpg)
 
+## 🔥 Latest News
+**Permalink: [🔥 Latest News](#latest-news)**  
+• If you like our project, please give us a star ⭐ on GitHub for the latest update.  
+• [2025/04/04] 🎉 Submitted to arXiv for review.  
+• [2025/04/04] 🔥 Released open-source code for the latest model.  
 
 ## Running the Code
 
