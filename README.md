@@ -86,7 +86,7 @@ python generate.py \
 | Method | VBench ↑ | LPIPS ↓ | PSNR ↑ | SSIM ↑ | FID ↓ | Latency (ms) ↓ | Speedup ↑ |
 |--------|---------|---------|--------|--------|--------|--------------|---------|
 | **Wan2.1 (480P, 81 frames)** | 0.7582 | -- | -- | -- | -- | 497 | -- |
-| TeaCache (0.2thres) [Tea](#https://github.com/ali-vilab/TeaCache) | 0.7604 | 0.2913 | 16.17 | 0.5685 | 117.61 | 249 | 2.00× |
+| TeaCache (0.2thres) [Tea](https://github.com/ali-vilab/TeaCache) | 0.7604 | 0.2913 | 16.17 | 0.5685 | 117.61 | 249 | 2.00× |
 | **Ours (Wan2.1)** | **0.7615** | **0.1256** | **22.02** | **0.7899** | **62.56** | **247** | **2.01×** |
 
 **Tables:** Quantitative comparison with prior methods under HunyuanVideo and Wan2.1 baselines.  
