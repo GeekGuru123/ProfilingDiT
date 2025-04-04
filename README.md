@@ -76,17 +76,17 @@ python generate.py \
 
 | Method | VBench ↑ | LPIPS ↓ | PSNR ↑ | SSIM ↑ | FID ↓ | Latency (ms) ↓ | Speedup ↑ |
 |--------|---------|---------|--------|--------|--------|--------------|---------|
-| **HunyuanVideo (720P, 129 frames)** [Kong et al. 2024](#) | **0.7703** | -- | -- | -- | -- | 1745 | -- |
-| TeaCache (slow) [Tea et al.](#) | 0.7700 | 0.1720 | 21.91 | 0.7456 | 77.67 | 1052 | 1.66× |
-| TeaCache (fast) [Tea et al.](#) | 0.7677 | 0.1830 | 21.60 | 0.7323 | 83.85 | **753** | **2.31×** |
+| **HunyuanVideo (720P, 129 frames)** | **0.7703** | -- | -- | -- | -- | 1745 | -- |
+| TeaCache (slow) [Tea](#https://github.com/ali-vilab/TeaCache) | 0.7700 | 0.1720 | 21.91 | 0.7456 | 77.67 | 1052 | 1.66× |
+| TeaCache (fast) [Tea](#https://github.com/ali-vilab/TeaCache) | 0.7677 | 0.1830 | 21.60 | 0.7323 | 83.85 | **753** | **2.31×** |
 | **Ours (HunyuanVideo)** | 0.7642 | **0.1203** | **26.44** | **0.8445** | **41.10** | 932 | 1.87× |
 
 ### Wan2.1 Baseline
 
 | Method | VBench ↑ | LPIPS ↓ | PSNR ↑ | SSIM ↑ | FID ↓ | Latency (ms) ↓ | Speedup ↑ |
 |--------|---------|---------|--------|--------|--------|--------------|---------|
-| **Wan2.1 (480P, 81 frames)** [Wan2.1 et al.](#) | 0.7582 | -- | -- | -- | -- | 497 | -- |
-| TeaCache (fast) [Tea et al.](#) | 0.7604 | 0.2913 | 16.17 | 0.5685 | 117.61 | 249 | 2.00× |
+| **Wan2.1 (480P, 81 frames)** | 0.7582 | -- | -- | -- | -- | 497 | -- |
+| TeaCache (0.2thres) [Tea](#https://github.com/ali-vilab/TeaCache) | 0.7604 | 0.2913 | 16.17 | 0.5685 | 117.61 | 249 | 2.00× |
 | **Ours (Wan2.1)** | **0.7615** | **0.1256** | **22.02** | **0.7899** | **62.56** | **247** | **2.01×** |
 
 **Tables:** Quantitative comparison with prior methods under HunyuanVideo and Wan2.1 baselines.  
