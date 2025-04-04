@@ -2,15 +2,15 @@
 
 ## Official Implementation of ["Model Reveals What to Cache: Profiling-Based Feature Reuse for Video Diffusion Models"]
 ## [📄 Paper](docs/Model_Reveals_What_to_Cache__Profiling_Based_Feature_Reuse_for_Video_Diffusion_Models.pdf)
-[📄 查看文档](https://github.com/GeekGuru123/ProfilingDiT/blob/main/docs/Model_Reveals_What_to_Cache__Profiling_Based_Feature_Reuse_for_Video_Diffusion_Models.pdf)
 
 This repository contains the official implementation of our paper: *Model Reveals What to Cache: Profiling-Based Feature Reuse for Video Diffusion Models*. Please follow the official link for setting up the environment.
+
+
+## Running the Code
 
 ## Installation
 
 Follow the official [HunyuanVideo](https://github.com/Tencent/HunyuanVideo) and [WAN 2.1](https://github.com/Wan-Video/Wan2.1) environment setup guide.
-
-## Running the Code
 
 ### HunyuanVideo
 
@@ -42,3 +42,6 @@ python generate.py \
     --delta_cache
 ```
 
+# To-Do List:
+- [ ] OpenSora2
+- [ ] CogVideoX
