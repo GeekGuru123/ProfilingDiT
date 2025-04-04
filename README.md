@@ -2,6 +2,7 @@
 
 ## Official Implementation of ["Model Reveals What to Cache: Profiling-Based Feature Reuse for Video Diffusion Models"]
 ## [📄 Paper](docs/Model_Reveals_What_to_Cache__Profiling_Based_Feature_Reuse_for_Video_Diffusion_Models.pdf)
+[📄 查看文档](https://github.com/GeekGuru123/ProfilingDiT/blob/main/docs/Model_Reveals_What_to_Cache__Profiling_Based_Feature_Reuse_for_Video_Diffusion_Models.pdf)
 
 This repository contains the official implementation of our paper: *Model Reveals What to Cache: Profiling-Based Feature Reuse for Video Diffusion Models*. Please follow the official link for setting up the environment.
 
