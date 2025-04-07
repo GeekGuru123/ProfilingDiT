@@ -1,7 +1,7 @@
 # ProfilingDiT
 
 ## Official Implementation of ["Model Reveals What to Cache: Profiling-Based Feature Reuse for Video Diffusion Models"]
-## 📄 [Paper](docs/Model_Reveals_What_to_Cache__Profiling_Based_Feature_Reuse_for_Video_Diffusion_Models.pdf)
+## [📄Paper](docs/Model_Reveals_What_to_Cache__Profiling_Based_Feature_Reuse_for_Video_Diffusion_Models.pdf) [🔗arXiv](https://arxiv.org/pdf/2504.03140)
 
 This repository contains the official implementation of our paper: *Model Reveals What to Cache: Profiling-Based Feature Reuse for Video Diffusion Models*.  
 Please follow the official link for setting up the environment.
@@ -118,13 +118,18 @@ For detailed setup and configurations, please refer to our [Multi-GPU Guide](./d
 - [ ] **Optimize Caching for CogVideoX** ⚙️
 
 ---
+## 📚 Citation
 
-## ⭐ Contributing
-If you find our project helpful, feel free to fork and submit pull requests! Contributions are always welcome.  
-
-For major contributions, please open an issue first to discuss the proposed changes.
-
----
-
+```bibtex
+@misc{ma2025modelrevealscacheprofilingbased,
+      title={Model Reveals What to Cache: Profiling-Based Feature Reuse for Video Diffusion Models}, 
+      author={Xuran Ma and Yexin Liu and Yaofu Liu and Xianfeng Wu and Mingzhe Zheng and Zihao Wang and Ser-Nam Lim and Harry Yang},
+      year={2025},
+      eprint={2504.03140},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2504.03140}, 
+}
+```
 ## 📜 License
 This project is licensed under the Apache 2.0 License.
