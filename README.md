@@ -1,7 +1,7 @@
 # ProfilingDiT
 
-## Official Implementation of ["Model Reveals What to Cache: Profiling-Based Feature Reuse for Video Diffusion Models"]
-## [📄Paper](docs/Model_Reveals_What_to_Cache__Profiling_Based_Feature_Reuse_for_Video_Diffusion_Models.pdf) [🔗arXiv](https://arxiv.org/pdf/2504.03140)
+### Official Implementation of ["Model Reveals What to Cache: Profiling-Based Feature Reuse for Video Diffusion Models"]
+## [📄Paper](https://openaccess.thecvf.com/content/ICCV2025/papers/Ma_Model_Reveals_What_to_Cache_Profiling-Based_Feature_Reuse_for_Video_ICCV_2025_paper.pdf) [🔗arXiv](https://arxiv.org/pdf/2504.03140)
 
 This repository contains the official implementation of our paper: *Model Reveals What to Cache: Profiling-Based Feature Reuse for Video Diffusion Models*.  
 Please follow the official link for setting up the environment.
@@ -23,7 +23,8 @@ Please follow the official link for setting up the environment.
 ## 🔥 Latest News
 🔔 **[Latest News](#latest-news)**  
 • If you like our project, please give us a star ⭐ on GitHub for the latest update.  
-• **[2025/04/04]** 🎉 Submitted to arXiv for review.  
+• **🚨 Received by ICCV 2025** 🎉  
+• **[2025/04/04]** 🎉 Submitted to arXiv.  
 • **[2025/04/04]** 🔥 Released open-source code for the latest model.  
 
 ---
